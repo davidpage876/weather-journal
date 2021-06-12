@@ -31,7 +31,10 @@
                                 <h1 class="site-title">Weather Journal App</h1>
                             </a>
                         </div>
-                        <button class="nav-toggle material-icons icon" id="nav-toggle">menu</button>
+
+                        <!-- Note: Screen-readers don't need to use the menu toggle button because the nav menu is always visible (off screen when closed). -->
+                        <button class="nav-toggle material-icons icon" id="nav-toggle" aria-hidden="true">menu</button>
+
                     </div>
                     <nav class="primary-nav sidebar panel panel--light-solid">
                         <aside class="site-info">
