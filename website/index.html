@@ -37,6 +37,17 @@
         </div>
     </header>
 
+    <main class="site-main">
+        <div class="loc-input">
+            <h2 class="loc-input__heading">Where are you?</h2>
+            <form action="" method="get" id="loc-input-form" class="loc-input__form">
+                <label for="loc-input">Zip Code / City</label>
+                <input type="text" name="loc" id="loc-input" required>
+                <input type="button" value="gps_fixed" id="current-loc-btn" title="Use your current location" class="material-icons icon">
+                <input type="submit" value="arrow_forward" id="loc-submit-btn" title="Submit" class="material-icons icon">
+            </form>
+        </div>
+    </main>
 
     <script src="js/app.js"></script>
 </body>
