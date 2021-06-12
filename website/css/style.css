@@ -375,8 +375,7 @@ body {
         "info"
         "input"
         "post";
-    align-items: center;
-    gap: 28px;
+    gap: 28px 0;
     padding: 42px 0;
 }
 
@@ -395,6 +394,21 @@ body {
 
 .journal-entry__post-btn {
     padding: 8px 85px;
+}
+
+.journal-entry__column {
+    display: grid;
+    grid-template-rows: 60px 1fr;
+    align-items: center;
+}
+
+.journal-entry__column-heading {
+    justify-self: center;
+}
+
+.journal-entry__column-content {
+    height: 100%;
+    min-height: 220px;
 }
 
 @media only screen and (min-width: 960px) {
