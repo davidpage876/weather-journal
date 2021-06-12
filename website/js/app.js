@@ -8,6 +8,7 @@
     locInputForm.addEventListener('submit', onSubmit = event => {
         event.preventDefault();
     }, false);
+
 })();
 
 
