@@ -17,10 +17,10 @@
 }
 
 /* -----------------------------------------------------------
- * Primary Content Area & Hero
+ * Hero
  */
 
-.primary-content-area.hero--default {
+.hero--default {
     background: repeating-linear-gradient(45deg,
         var(--primary-bg) 0px, var(--primary-bg) 8px,
         var(--primary-bg-alt) 8px, var(--primary-bg-alt) 10px);
@@ -32,4 +32,15 @@
 
 .secondary-content-area {
     background: var(--secondary-bg);
+}
+
+/* -----------------------------------------------------------
+ * Headings
+ */
+
+h1,
+h2,
+h3 {
+    margin: 0;
+    padding: 15px 0;
 }
