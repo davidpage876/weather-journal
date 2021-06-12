@@ -159,6 +159,7 @@ body {
     right: -430px;
     top: 0;
     bottom: 0;
+    padding: 0 18px;
     box-shadow: 0 0 30px rgb(0 0 0 / 30%);
     transition: right 0.2s ease-in;
 }
@@ -167,24 +168,16 @@ body {
     right: 0;
 }
 
-.site-title {
-    transition: color 0.2s ease-in;
-}
-
-.nav-toggle, .site-title {
+.nav-toggle {
     z-index: 10;
 }
 
 .nav-menu {
-    padding: 65px 23px 23px;
+    padding: 0;
     list-style: none;
 }
 
 @media only screen and (min-width: 960px) {
-
-    .menu-open .site-title {
-        color: var(--text-light);
-    }
 
     .sidebar {
         max-width: 400px;
