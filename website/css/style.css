@@ -84,9 +84,17 @@ h3 {
 button,
 input[type="button"],
 input[type="submit"] {
+    background: rgb(var(--panel-bg-light-rgb));
+    border: solid 3px var(--border);
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button.icon,
+input[type="button"].icon,
+input[type="submit"].icon {
     border: none;
     background: transparent;
-    cursor: pointer;
 }
 
 /* -----------------------------------------------------------
