@@ -205,7 +205,7 @@ body {
     padding: 0 18px;
     max-width: 330px;
     box-shadow: 0 0 30px rgba(0, 0, 0, 30%);
-    transition: right 0.2s ease-in-out;
+    transition: right 0.3s ease-in-out;
 }
 
 .menu-open .sidebar {
@@ -273,7 +273,7 @@ body {
     width: 100%;
     opacity: 1;
     box-shadow: 0 0 10px rgba(0, 0, 0, 30%);
-    transition: opacity 0.2s ease-in-out;
+    transition: opacity 0.3s ease-in-out;
     z-index: -10;
 }
 
