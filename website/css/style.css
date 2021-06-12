@@ -6,11 +6,9 @@
 
 :root {
     --primary-bg: #ccc;
-    --secondary-bg: #333;
-    --secondary-bg-alt: #313131;
+    --secondary-bg-rgb: 0 0 0;
     --text: #222;
     --text-light: #eee;
-    --panel-bg: #fff;
     --panel-bg-rgb: 255 255 255;
     --border: #555;
     --border-light: #fff;
@@ -80,14 +78,14 @@ h3 {
 }
 
 /* -----------------------------------------------------------
- * Hero
+ * Background pattern.
  */
 
 body {
     background: var(--primary-bg);
 }
 
-.hero--default {
+.cloud-pattern {
     background: url(../img/clouds.svg);
 }
 
@@ -96,9 +94,7 @@ body {
  */
 
 .secondary-content-area {
-    background: repeating-linear-gradient(45deg,
-        var(--secondary-bg) 0px, var(--secondary-bg) 8px,
-        var(--secondary-bg-alt) 8px, var(--secondary-bg-alt) 10px);
+    background: rgb(var(--secondary-bg-rgb) / 70%);
 }
 
 .secondary-content-area p,

@@ -18,84 +18,86 @@
 
 <body class="page home weather-app">
 
-    <div class="primary-content-area hero hero--default">
-        <header class="site-header">
-            <div class="masthead">
-                <h1 class="site-title">Weather Journal App</h1>
-                <button class="nav-toggle">
-                    <span class="material-icons icon">menu</span>
-                </button>
-                <nav class="primary-nav">
-                    <ul class="nav-menu">
-                        <li class="nav-menu__item nav-menu__item--current">
-                            <a href="index.html" class="nav-menu__link">Home</a>
-                        </li>
-                        <li class="nav-menu__item">
-                            <aside>
-                                Weather Journal App (<span id="nav-menu-version-info">v.1.0.00</span>) by David Page © 2021
-                            </aside>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
-        </header>
-
-        <main class="site-main">
-            <div class="wrap">
-                <div class="loading" id="main-loading">Loading...</div>
-                <div class="loc-input">
-                    <h2 class="loc-input__heading">Where are you?</h2>
-                    <form action="" method="get" id="loc-input-form" class="loc-input__form">
-                        <label for="loc-input">Zip Code / City</label>
-                        <input type="text" name="loc" id="loc-input" required>
-                        <input type="button" value="gps_fixed" id="current-loc-btn" title="Use your current location" class="material-icons icon">
-                        <input type="submit" value="arrow_forward" id="loc-submit-btn" title="Submit" class="material-icons icon">
-                    </form>
+    <div class="cloud-pattern">
+        <div class="primary-content-area hero hero--default">
+            <header class="site-header">
+                <div class="masthead">
+                    <h1 class="site-title">Weather Journal App</h1>
+                    <button class="nav-toggle">
+                        <span class="material-icons icon">menu</span>
+                    </button>
+                    <nav class="primary-nav">
+                        <ul class="nav-menu">
+                            <li class="nav-menu__item nav-menu__item--current">
+                                <a href="index.html" class="nav-menu__link">Home</a>
+                            </li>
+                            <li class="nav-menu__item">
+                                <aside>
+                                    Weather Journal App (<span id="nav-menu-version-info">v.1.0.00</span>) by David Page © 2021
+                                </aside>
+                            </li>
+                        </ul>
+                    </nav>
                 </div>
-                <div class="journal-entry journal-entry--main" data-id="01">
-                    <div class="weather-info">
-                        <img class="weather-info__icon" id="weather-icon-01" alt="Sun">
-                        <div class="weather-info-box">
-                            <p class="weather-info__loc" id="weather-loc-info-01">Townsville, QLD Australia</p>
-                            <p class="weather-info__timedate" id="weather-timedate-01">Saturday 12/06/2021, 11:11 AM</p>
-                            <p class="weather-info__desc" id="weather-desc-01">Sunny</p>
-                            <p class="weather-info__tempc"><span id="weather-tempc-01">--</span>° celsius</p>
-                            <p class="weather-info__tempf"><span id="weather-tempf-01">--</span>° fahrenheit</p>
-                            <p class="weather-info__precip"><span id="weather-precip-01">--</span>% precipitation</p>
-                            <p class="weather-info__humid"><span id="weather-humid-01">--</span>% humidity</p>
-                            <p class="weather-info__wind"><span id="weather-wind-01">--</span> mph</p>
-                        </div>
+            </header>
+
+            <main class="site-main">
+                <div class="wrap">
+                    <div class="loading" id="main-loading">Loading...</div>
+                    <div class="loc-input">
+                        <h2 class="loc-input__heading">Where are you?</h2>
+                        <form action="" method="get" id="loc-input-form" class="loc-input__form">
+                            <label for="loc-input">Zip Code / City</label>
+                            <input type="text" name="loc" id="loc-input" required>
+                            <input type="button" value="gps_fixed" id="current-loc-btn" title="Use your current location" class="material-icons icon">
+                            <input type="submit" value="arrow_forward" id="loc-submit-btn" title="Submit" class="material-icons icon">
+                        </form>
                     </div>
-                    <form action="" method="get" id="journal-entry-form-01" class="journal-entry__form">
-                        <div class="journal-entry__feeling">
-                            <label for="journal-input" id="journal-input-label-01">How are you feeling?</label>
-                            <div class="journal-entry__box">
-                                <input type="text" name="journal-entry" id="journal-input-01" required>
+                    <div class="journal-entry journal-entry--main" data-id="01">
+                        <div class="weather-info">
+                            <img class="weather-info__icon" id="weather-icon-01" alt="Sun">
+                            <div class="weather-info-box">
+                                <p class="weather-info__loc" id="weather-loc-info-01">Townsville, QLD Australia</p>
+                                <p class="weather-info__timedate" id="weather-timedate-01">Saturday 12/06/2021, 11:11 AM</p>
+                                <p class="weather-info__desc" id="weather-desc-01">Sunny</p>
+                                <p class="weather-info__tempc"><span id="weather-tempc-01">--</span>° celsius</p>
+                                <p class="weather-info__tempf"><span id="weather-tempf-01">--</span>° fahrenheit</p>
+                                <p class="weather-info__precip"><span id="weather-precip-01">--</span>% precipitation</p>
+                                <p class="weather-info__humid"><span id="weather-humid-01">--</span>% humidity</p>
+                                <p class="weather-info__wind"><span id="weather-wind-01">--</span> mph</p>
                             </div>
                         </div>
-                        <input type="submit" value="Post" id="journal-submit-btn-01" class="journal-entry__submit">
-                    </form>
+                        <form action="" method="get" id="journal-entry-form-01" class="journal-entry__form">
+                            <div class="journal-entry__feeling">
+                                <label for="journal-input" id="journal-input-label-01">How are you feeling?</label>
+                                <div class="journal-entry__box">
+                                    <input type="text" name="journal-entry" id="journal-input-01" required>
+                                </div>
+                            </div>
+                            <input type="submit" value="Post" id="journal-submit-btn-01" class="journal-entry__submit">
+                        </form>
+                    </div>
                 </div>
-            </div>
-        </main>
-    </div>
+            </main>
+        </div>
 
-    <div class="secondary-content-area">
-        <aside class="past-journal-posts" id="past-journal-posts">
-            <div class="wrap">
-                <h2>Your Previous Posts</h2>
-                <div class="loading" id="past-post-loading">Loading...</div>
-                <p class="remark" id="no-posts">-- None to display --</p>
-            </div>
-        </aside>
-
-        <footer class="site-footer">
-            <div class="wrap">
-                <div class="footer-bar">
-                    <p>Weather Journal App (<span id="footer-version-info">v.1.0.00</span>) by David Page © 2021</p>
+        <div class="secondary-content-area">
+            <aside class="past-journal-posts" id="past-journal-posts">
+                <div class="wrap">
+                    <h2>Your Previous Posts</h2>
+                    <div class="loading" id="past-post-loading">Loading...</div>
+                    <p class="remark" id="no-posts">-- None to display --</p>
                 </div>
-            </div>
-        </footer>
+            </aside>
+
+            <footer class="site-footer">
+                <div class="wrap">
+                    <div class="footer-bar">
+                        <p>Weather Journal App (<span id="footer-version-info">v.1.0.00</span>) by David Page © 2021</p>
+                    </div>
+                </div>
+            </footer>
+        </div>
     </div>
 
     <script src="js/app.js"></script>
