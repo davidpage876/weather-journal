@@ -9,6 +9,13 @@
         event.preventDefault();
     }, false);
 
+    // Toggle nav menu on menu button pressed.
+    const navToggle = document.getElementById('nav-toggle');
+    navToggle.addEventListener('click', () => {
+        const masthead = document.getElementById('masthead');
+        masthead.classList.toggle('menu-open');
+    }, false);
+
 })();
 
 
