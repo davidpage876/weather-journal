@@ -11,9 +11,26 @@
 
     // Toggle nav menu on menu button pressed.
     const navToggle = document.getElementById('nav-toggle');
+    const masthead = document.getElementById('masthead');
     navToggle.addEventListener('click', () => {
-        const masthead = document.getElementById('masthead');
         masthead.classList.toggle('menu-open');
+    }, false);
+
+    // Hide header bar background while near top of document.
+    const updateHeaderBar = () => {
+        if (window.scrollY === 0) {
+            masthead.classList.add('at-top');
+        } else {
+            masthead.classList.remove('at-top');
+        }
+    };
+    updateHeaderBar();
+
+    // Handle scroll event.
+    window.addEventListener('scroll', () => {
+
+        updateHeaderBar();
+
     }, false);
 
 })();
