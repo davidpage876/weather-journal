@@ -160,6 +160,7 @@ body {
     right: -430px;
     top: 0;
     bottom: 0;
+    transition: right 0.2s ease-in;
 }
 
 .menu-open .sidebar {
