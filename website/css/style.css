@@ -155,6 +155,7 @@ body {
 }
 
 .sidebar {
+    visibility: hidden;
     position: fixed;
     left: 0;
     right: -430px;
@@ -164,6 +165,7 @@ body {
 }
 
 .menu-open .sidebar {
+    visibility: visible;
     right: 0;
 }
 
@@ -187,6 +189,7 @@ body {
     }
 
     .sidebar {
+        visibility: visible;
         box-shadow: 0 0 30px rgb(0 0 0 / 30%);
         left: unset;
         max-width: 400px;
