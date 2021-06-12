@@ -38,6 +38,18 @@ h3 {
 }
 
 /* -----------------------------------------------------------
+ * Buttons
+ */
+
+button,
+input[type="button"],
+input[type="submit"] {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+}
+
+/* -----------------------------------------------------------
  * General layout
  */
 
