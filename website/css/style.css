@@ -108,33 +108,16 @@ h3 {
     padding: 15px 0;
 }
 
-.content-container {
-    display: grid;
-    grid-template-rows: auto 1fr;
-    min-height: 100vh;
-}
-
 .wrap {
     padding: 0 5%;
 }
 
-.secondary-content-area {
-    display: grid;
-    grid-template-rows: auto 1fr;
-    align-items: flex-end;
-}
-
 @media only screen and (min-width: 960px) {
 
-    .content-container {
-        grid-template-rows: minmax(80vh, auto) 1fr;
-    }
-
     .wrap {
-        width: 100%;
         max-width: 1350px;
         margin: 0 auto;
-        padding: 0;
+        padding: 0 20px;
     }
 
 }
@@ -260,6 +243,7 @@ body {
     align-items: center;
     text-decoration: none;
     gap: 6px;
+    height: 100%;
 }
 
 .site-logo {
@@ -376,7 +360,9 @@ body {
         "input"
         "post";
     gap: 28px 0;
-    padding: 42px 0;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px 0 60px;
 }
 
 .journal-entry__info {
@@ -417,6 +403,8 @@ body {
         grid-template-areas:
             "info input"
             "post post";
+        max-width: 800px;
+        padding: 50px 0;
     }
 
 }
