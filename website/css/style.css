@@ -17,6 +17,48 @@
 }
 
 /* -----------------------------------------------------------
+ * General layout
+ */
+
+h1,
+h2,
+h3 {
+    margin: 0;
+    padding: 15px 0;
+}
+
+.page {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    min-height: 100vh;
+}
+
+.wrap {
+    padding: 0 5%;
+}
+
+.secondary-content-area {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    align-items: flex-end;
+}
+
+@media only screen and (min-width: 960px) {
+
+    .page {
+        grid-template-rows: minmax(80vh, auto) 1fr;
+    }
+
+    .wrap {
+        width: 100%;
+        max-width: 1350px;
+        margin: 0 auto;
+        padding: 0;
+    }
+
+}
+
+/* -----------------------------------------------------------
  * Hero
  */
 
@@ -32,34 +74,4 @@
 
 .secondary-content-area {
     background: var(--secondary-bg);
-}
-
-/* -----------------------------------------------------------
- * Headings
- */
-
-h1,
-h2,
-h3 {
-    margin: 0;
-    padding: 15px 0;
-}
-
-/* -----------------------------------------------------------
- * General layout
- */
-
-.wrap {
-    padding: 0 5%;
-}
-
-@media only screen and (min-width: 960px) {
-
-    .wrap {
-        width: 100%;
-        max-width: 1350px;
-        margin: 0 auto;
-        padding: 0;
-    }
-
 }
