@@ -356,3 +356,39 @@ body {
 .site-footer .site-info__about-app {
     margin: 0;
 }
+
+/* -----------------------------------------------------------
+ * Journal Entry
+ */
+
+.journal-entry {
+    display: grid;
+    grid-template-areas:
+        "info"
+        "input"
+        "post";
+    gap: 28px;
+    padding: 42px 0;
+}
+
+.journal-entry__info {
+    grid-area: info;
+}
+
+.journal-entry__feeling {
+    grid-area: input;
+}
+
+.journal-entry__submit {
+    grid-area: post;
+}
+
+@media only screen and (min-width: 960px) {
+
+    .journal-entry {
+        grid-template-areas:
+            "info input"
+            "post post";
+    }
+
+}
