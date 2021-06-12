@@ -5,11 +5,12 @@
  */
 
 :root {
-    --primary-bg: #ccc;
-    --secondary-bg-rgb: 0 0 0;
+    --bg: #ccc;
     --text: #222;
     --text-light: #eee;
-    --panel-bg-rgb: 255 255 255;
+    --panel-bg-light-rgb: 255 255 255;
+    --panel-bg-dark-rgb: 0 0 0;
+    --panel-opacity: 70%;
     --border: #555;
     --border-light: #fff;
 }
@@ -22,6 +23,7 @@ p,
 a,
 div,
 input,
+img,
 button,
 li {
     font: 16px/1.5 "roboto", sans-serif;
@@ -78,11 +80,11 @@ h3 {
 }
 
 /* -----------------------------------------------------------
- * Background pattern
+ * Backgrounds
  */
 
 body {
-    background: var(--primary-bg);
+    background: var(--bg);
 }
 
 .cloud-pattern {
@@ -90,22 +92,31 @@ body {
 }
 
 /* -----------------------------------------------------------
- * Secondary Content Area
+ * Panels
  */
 
-.secondary-content-area {
-    background: rgb(var(--secondary-bg-rgb) / 70%);
+.panel--light-solid {
+    background: rgb(var(--panel-bg-light-rgb));
 }
 
-.secondary-content-area p,
-.secondary-content-area a,
-.secondary-content-area div,
-.secondary-content-area input,
-.secondary-content-area button,
-.secondary-content-area li,
-.secondary-content-area h1,
-.secondary-content-area h2,
-.secondary-content-area h3 {
+.panel--light {
+    background: rgb(var(--panel-bg-light-rgb) / var(--panel-opacity));
+}
+
+.panel--dark {
+    background: rgb(var(--panel-bg-dark-rgb) / var(--panel-opacity));
+}
+
+.panel--dark p,
+.panel--dark a,
+.panel--dark div,
+.panel--dark input,
+.panel--dark img,
+.panel--dark button,
+.panel--dark li,
+.panel--dark h1,
+.panel--dark h2,
+.panel--dark h3 {
     color: var(--text-light);
 }
 
