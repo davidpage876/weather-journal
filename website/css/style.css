@@ -125,7 +125,9 @@ body {
  */
 
 .masthead {
-    padding: 0 5%;
+    display: grid;
+    grid-template-columns: 1fr 60px;
+    padding: 0 24px;
 }
 
 /* -----------------------------------------------------------
