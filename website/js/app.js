@@ -14,7 +14,7 @@
     const masthead = document.getElementById('masthead');
     navToggle.addEventListener('click', () => {
         const isOpen = masthead.classList.toggle('menu-open');
-        navToggle.innerHTML = isOpen ? 'chevron_right' : 'menu';
+        navToggle.innerHTML = isOpen ? 'close' : 'menu';
     }, false);
 
     // Hide header bar background while near top of document.
