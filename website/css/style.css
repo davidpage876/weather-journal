@@ -46,7 +46,7 @@ h3 {
     padding: 15px 0;
 }
 
-.page {
+.content-container {
     display: grid;
     grid-template-rows: auto 1fr;
     min-height: 100vh;
@@ -64,7 +64,7 @@ h3 {
 
 @media only screen and (min-width: 960px) {
 
-    .page {
+    .content-container {
         grid-template-rows: minmax(80vh, auto) 1fr;
     }
 
@@ -78,7 +78,7 @@ h3 {
 }
 
 /* -----------------------------------------------------------
- * Background pattern.
+ * Background pattern
  */
 
 body {
