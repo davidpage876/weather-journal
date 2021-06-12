@@ -51,38 +51,42 @@
                     <input type="submit" value="arrow_forward" id="loc-submit-btn" title="Submit" class="material-icons icon">
                 </form>
             </div>
-            <div class="journal-entry journal-entry--main" data-id="01">
-                <div class="weather-info">
-                    <img class="weather-info__icon" id="weather-icon-01" alt="Sun">
-                    <div class="weather-info-box">
-                        <p class="weather-info__loc" id="weather-loc-info-01">Townsville, QLD Australia</p>
-                        <p class="weather-info__timedate" id="weather-timedate-01">Saturday 12/06/2021, 11:11 AM</p>
-                        <p class="weather-info__desc" id="weather-desc-01">Sunny</p>
-                        <p class="weather-info__tempc"><span id="weather-tempc-01">--</span>° celsius</p>
-                        <p class="weather-info__tempf"><span id="weather-tempf-01">--</span>° fahrenheit</p>
-                        <p class="weather-info__precip"><span id="weather-precip-01">--</span>% precipitation</p>
-                        <p class="weather-info__humid"><span id="weather-humid-01">--</span>% humidity</p>
-                        <p class="weather-info__wind"><span id="weather-wind-01">--</span> mph</p>
-                    </div>
-                </div>
-                <form action="" method="get" id="journal-entry-form-01" class="journal-entry__form">
-                    <div class="journal-entry__feeling">
-                        <label for="journal-input" id="journal-input-label-01">How are you feeling?</label>
-                        <div class="journal-entry__box">
-                            <input type="text" name="journal-entry" id="journal-input-01" required>
+            <div class="wrap">
+                <div class="journal-entry journal-entry--main" data-id="01">
+                    <div class="weather-info">
+                        <img class="weather-info__icon" id="weather-icon-01" alt="Sun">
+                        <div class="weather-info-box">
+                            <p class="weather-info__loc" id="weather-loc-info-01">Townsville, QLD Australia</p>
+                            <p class="weather-info__timedate" id="weather-timedate-01">Saturday 12/06/2021, 11:11 AM</p>
+                            <p class="weather-info__desc" id="weather-desc-01">Sunny</p>
+                            <p class="weather-info__tempc"><span id="weather-tempc-01">--</span>° celsius</p>
+                            <p class="weather-info__tempf"><span id="weather-tempf-01">--</span>° fahrenheit</p>
+                            <p class="weather-info__precip"><span id="weather-precip-01">--</span>% precipitation</p>
+                            <p class="weather-info__humid"><span id="weather-humid-01">--</span>% humidity</p>
+                            <p class="weather-info__wind"><span id="weather-wind-01">--</span> mph</p>
                         </div>
                     </div>
-                    <input type="submit" value="Post" id="journal-submit-btn-01" class="journal-entry__submit">
-                </form>
+                    <form action="" method="get" id="journal-entry-form-01" class="journal-entry__form">
+                        <div class="journal-entry__feeling">
+                            <label for="journal-input" id="journal-input-label-01">How are you feeling?</label>
+                            <div class="journal-entry__box">
+                                <input type="text" name="journal-entry" id="journal-input-01" required>
+                            </div>
+                        </div>
+                        <input type="submit" value="Post" id="journal-submit-btn-01" class="journal-entry__submit">
+                    </form>
+                </div>
             </div>
         </main>
     </div>
 
     <div class="secondary-content-area">
         <aside class="past-journal-posts" id="past-journal-posts">
-            <h2>Your Previous Posts</h2>
-            <div class="loading" id="past-post-loading">Loading...</div>
-            <p class="remark" id="no-posts">-- None to display --</p>
+            <div class="wrap">
+                <h2>Your Previous Posts</h2>
+                <div class="loading" id="past-post-loading">Loading...</div>
+                <p class="remark" id="no-posts">-- None to display --</p>
+            </div>
         </aside>
 
         <footer class="site-footer">
