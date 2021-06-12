@@ -375,6 +375,7 @@ body {
         "info"
         "input"
         "post";
+    align-items: center;
     gap: 28px;
     padding: 42px 0;
 }
@@ -387,8 +388,13 @@ body {
     grid-area: input;
 }
 
-.journal-entry__submit {
+.journal-entry__post {
     grid-area: post;
+    justify-self: center;
+}
+
+.journal-entry__post-btn {
+    padding: 8px 85px;
 }
 
 @media only screen and (min-width: 960px) {
