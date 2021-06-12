@@ -203,15 +203,20 @@ body {
 
 .site-header {
     position: relative;
+    height: 70px;
 }
 
 .masthead {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+}
+
+.header-bar {
     display: grid;
     grid-template-columns: 1fr 60px;
-    position: fixed;
-    left: 24px;
-    right: 24px;
-    top: 0;
+    padding-left: 24px;
 }
 
 /* -----------------------------------------------------------
