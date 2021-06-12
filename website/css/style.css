@@ -167,6 +167,10 @@ body {
     right: 0;
 }
 
+.site-title {
+    transition: color 0.2s ease-in;
+}
+
 .nav-toggle, .site-title {
     z-index: 10;
 }
