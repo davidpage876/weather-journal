@@ -33,8 +33,48 @@ li {
 h1,
 h2,
 h3 {
-    font: bold 25px/1.5 "roboto", sans-serif;
+    font: bold 19px/1.5 "roboto", sans-serif;
     color: var(--text);
+}
+
+@media only screen and (min-width: 420px) {
+
+    p,
+    a,
+    div,
+    input,
+    img,
+    button,
+    li {
+        font-size: 17px;
+    }
+
+    h1,
+    h2,
+    h3 {
+        font-size: 22px;
+    }
+
+}
+
+@media only screen and (min-width: 960px) {
+
+    p,
+    a,
+    div,
+    input,
+    img,
+    button,
+    li {
+        font-size: 18px;
+    }
+
+    h1,
+    h2,
+    h3 {
+        font-size: 25px;
+    }
+
 }
 
 /* -----------------------------------------------------------
