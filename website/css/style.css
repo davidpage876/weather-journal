@@ -108,3 +108,11 @@ h3 {
 .secondary-content-area h3 {
     color: var(--text-light);
 }
+
+/* -----------------------------------------------------------
+ * Footer
+ */
+
+.footer-bar {
+    text-align: center;
+}
