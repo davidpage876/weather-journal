@@ -6,8 +6,8 @@
 
 :root {
     --primary-bg: #ccc;
-    --primary-bg-alt: #c5c5c5;
     --secondary-bg: #333;
+    --secondary-bg-alt: #313131;
     --text: #222;
     --text-light: #eee;
     --panel-bg: #fff;
@@ -83,10 +83,12 @@ h3 {
  * Hero
  */
 
+body {
+    background: var(--primary-bg);
+}
+
 .hero--default {
-    background: repeating-linear-gradient(45deg,
-        var(--primary-bg) 0px, var(--primary-bg) 8px,
-        var(--primary-bg-alt) 8px, var(--primary-bg-alt) 10px);
+    background: url(../img/clouds.svg);
 }
 
 /* -----------------------------------------------------------
@@ -94,7 +96,9 @@ h3 {
  */
 
 .secondary-content-area {
-    background: var(--secondary-bg);
+    background: repeating-linear-gradient(45deg,
+        var(--secondary-bg) 0px, var(--secondary-bg) 8px,
+        var(--secondary-bg-alt) 8px, var(--secondary-bg-alt) 10px);
 }
 
 .secondary-content-area p,
