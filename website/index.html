@@ -41,17 +41,17 @@
         </header>
 
         <main class="site-main">
-            <div class="loading" id="main-loading">Loading...</div>
-            <div class="loc-input">
-                <h2 class="loc-input__heading">Where are you?</h2>
-                <form action="" method="get" id="loc-input-form" class="loc-input__form">
-                    <label for="loc-input">Zip Code / City</label>
-                    <input type="text" name="loc" id="loc-input" required>
-                    <input type="button" value="gps_fixed" id="current-loc-btn" title="Use your current location" class="material-icons icon">
-                    <input type="submit" value="arrow_forward" id="loc-submit-btn" title="Submit" class="material-icons icon">
-                </form>
-            </div>
             <div class="wrap">
+                <div class="loading" id="main-loading">Loading...</div>
+                <div class="loc-input">
+                    <h2 class="loc-input__heading">Where are you?</h2>
+                    <form action="" method="get" id="loc-input-form" class="loc-input__form">
+                        <label for="loc-input">Zip Code / City</label>
+                        <input type="text" name="loc" id="loc-input" required>
+                        <input type="button" value="gps_fixed" id="current-loc-btn" title="Use your current location" class="material-icons icon">
+                        <input type="submit" value="arrow_forward" id="loc-submit-btn" title="Submit" class="material-icons icon">
+                    </form>
+                </div>
                 <div class="journal-entry journal-entry--main" data-id="01">
                     <div class="weather-info">
                         <img class="weather-info__icon" id="weather-icon-01" alt="Sun">
@@ -90,8 +90,10 @@
         </aside>
 
         <footer class="site-footer">
-            <div class="footer-bar">
-                <p>Weather Journal App (<span id="footer-version-info">v.1.0.00</span>) by David Page © 2021</p>
+            <div class="wrap">
+                <div class="footer-bar">
+                    <p>Weather Journal App (<span id="footer-version-info">v.1.0.00</span>) by David Page © 2021</p>
+                </div>
             </div>
         </footer>
     </div>
