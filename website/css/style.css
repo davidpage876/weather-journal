@@ -5,13 +5,31 @@
  */
 
 :root {
-    --primary-bg: #444;
+    --primary-bg: #888;
+    --primary-bg-alt: #808080;
     --secondary-bg: #333;
-    --secondary-alt: #222;
     --text: #222;
     --text-light: #eee;
     --panel-bg: #fff;
     --panel-bg-rgb: 255 255 255;
     --border: #555;
     --border-light: #fff;
+}
+
+/* -----------------------------------------------------------
+ * Primary Content Area & Hero
+ */
+
+.primary-content-area.hero--default {
+    background: repeating-linear-gradient(45deg,
+        var(--primary-bg) 0px, var(--primary-bg) 8px,
+        var(--primary-bg-alt) 8px, var(--primary-bg-alt) 10px);
+}
+
+/* -----------------------------------------------------------
+ * Secondary Content Area
+ */
+
+.secondary-content-area {
+    background: var(--secondary-bg);
 }
