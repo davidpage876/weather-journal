@@ -8,8 +8,8 @@
     --bg: #ccc;
     --text: #222;
     --text-light: #eee;
-    --panel-bg-light-rgb: 255 255 255;
-    --panel-bg-dark-rgb: 0 0 0;
+    --panel-bg-light-rgb: 255, 255, 255;
+    --panel-bg-dark-rgb: 0, 0, 0;
     --panel-opacity: 70%;
     --border: #555;
     --border-light: #fff;
@@ -100,7 +100,7 @@ body {
 }
 
 .panel--light {
-    background: rgb(var(--panel-bg-light-rgb) / var(--panel-opacity));
+    background: rgba(var(--panel-bg-light-rgb), var(--panel-opacity));
 }
 
 .panel--dark-solid {
@@ -108,7 +108,7 @@ body {
 }
 
 .panel--dark {
-    background: rgb(var(--panel-bg-dark-rgb) / var(--panel-opacity));
+    background: rgba(var(--panel-bg-dark-rgb), var(--panel-opacity));
 }
 
 .panel--dark p,
@@ -160,7 +160,7 @@ body {
     top: 0;
     bottom: 0;
     padding: 0 18px;
-    box-shadow: 0 0 30px rgb(0 0 0 / 30%);
+    box-shadow: 0 0 30px rgba(0, 0, 0, 30%);
     transition: right 0.2s ease-in;
 }
 
