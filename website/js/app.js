@@ -9,6 +9,24 @@
         event.preventDefault();
     }, false);
 
+    // Move location input label above it while it has focus or has content.
+    const locInput = document.getElementById('loc-input');
+    const updateHasContent = () => {
+        if (locInput.value === "") {
+            locInputForm.classList.remove('has-content');
+        } else {
+            locInputForm.classList.add('has-content');
+        }
+    };
+    locInput.addEventListener('focus', () => {
+        locInputForm.classList.add('has-focus');
+        updateHasContent();
+    }, false);
+    locInput.addEventListener('blur', () => {
+        locInputForm.classList.remove('has-focus');
+        updateHasContent();
+    }, false);
+
     // Toggle nav menu on menu button pressed.
     const navToggle = document.getElementById('nav-toggle');
     const masthead = document.getElementById('masthead');
