@@ -362,7 +362,7 @@ body {
 
 .loc-input__form {
     display: grid;
-    grid-template-columns: minmax(0, 320px) auto auto;
+    grid-template-columns: minmax(0, 450px) auto auto;
     grid-template-areas: "input gps submit";
     gap: 6px;
 }
