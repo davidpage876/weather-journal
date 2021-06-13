@@ -384,6 +384,7 @@ body {
     opacity: 100%;
     font-size: 16px;
     height: 22px;
+    transition: margin-top 0.1s ease-in;
 }
 
 .loc-input__input {
