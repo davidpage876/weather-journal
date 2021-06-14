@@ -10,6 +10,7 @@
 // Cors for cross origin allowance
 
 // Initialize the main project folder
+//app.use(express.static('website'));
 
 // Spin up the server
 // Callback to debug
