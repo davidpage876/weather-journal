@@ -112,6 +112,10 @@ h3 {
     padding: 0 5%;
 }
 
+.site-main {
+    position: relative;
+}
+
 @media only screen and (min-width: 960px) {
 
     .wrap {
@@ -354,11 +358,22 @@ body {
  * Location Input
  */
 
+.loc-input-container {
+    height: 120px;
+}
+
 .loc-input {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 7px;
+    gap: 15px;
+	position: absolute;
+    left: 0;
+    right: 0;
+	top: 0;
+	transition:
+		gap 0.4s ease-in-out,
+		top 0.4s ease-in-out;
 }
 
 .loc-input__form {
@@ -388,6 +403,11 @@ body {
     transition: margin-top 0.1s ease-in;
 }
 
+.loc-input__heading {
+    font-size: 35px;
+    transition: font-size 0.4s ease-in-out;
+}
+
 .loc-input__input {
     padding: 11px;
     grid-area: input;
@@ -399,6 +419,15 @@ body {
 
 .loc-input__submit {
     grid-area: submit;
+}
+
+.site-main:not(.has-location) .loc-input {
+    gap: 7px;
+    top: 30%;
+}
+
+.site-main:not(.has-location) .loc-input__heading {
+    font-size: 25px;
 }
 
 /* -----------------------------------------------------------
@@ -415,6 +444,11 @@ body {
     max-width: 400px;
     margin: 0 auto;
     padding: 20px 0 60px;
+}
+
+.journal-entry--main {
+    opacity: 0;
+    transition: opacity 0.4s ease-in-out;
 }
 
 .journal-entry__info {
@@ -461,6 +495,10 @@ body {
 
 }
 
+.has-location .journal-entry--main {
+    /* TODO: Hide main journal entry content until we have a location */
+    opacity: 1;
+}
 
 /* -----------------------------------------------------------
  * Loading
