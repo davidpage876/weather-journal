@@ -1,4 +1,30 @@
-// Setup empty JS object to act as endpoint for all routes
+
+/**
+ * Holds endpoint data about a user.
+ * @constructor
+ */
+(function UserData() {
+    const entryData = [];
+    return {
+
+        /** Returns all journal entries submitted by the user. */
+        getAllEntries: function() {
+            return entryData;
+        },
+
+        /** Adds a journal entry to the user record. */
+        addEntry: function(entry) {
+            entryData.push(entry);
+        },
+
+    }
+})();
+
+/** Spin up the server. */
+(function runServer() {
+    const userData = new UserData;
+})();
+
 // Express to run server and routes
 
 // Start up an instance of app
