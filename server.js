@@ -20,29 +20,39 @@
     }
 })();
 
-/** Spin up the server. */
-(function runServer() {
+/**
+ * Spin up the server.
+ * @param {number} port Port to initialize the server on.
+ * @param {string} staticDir Directory to load static resources from.
+*/
+(function runServer(port, staticDir) {
     const userData = new UserData;
-})();
 
-// Express to run server and routes
+    // Set up dependencies.
+    const express = require('express');
+    const bodyParser = require('body-parser');
+    const cors = require('cors');
 
-// Start up an instance of app
+    const app = express();
+    app.use(bodyParser.urlencoded({ extended: false }));
+    app.use(bodyParser.json());
+    app.use(cors());
+    app.use(express.static(path.join(__dirname, staticDir)));
 
-/* Dependencies */
-/* Middleware*/
+    // Set up routes.
+    app.get('/all', (req, res) => {
+        res.send(userData.getAllEntries());
+    });
 
-//Here we are configuring express to use body-parser as middle-ware.
-// Cors for cross origin allowance
+    app.post('/add-entry', (req, res) => {
+        userData.addEntry(req.body);
+        res.send(userData.getAllEntries());
+    });
 
-// Initialize the main project folder
-//app.use(express.static('website'));
+    // Run server.
+    app.listen(port, () => {
+        console.log('Server running');
+        console.log(`Running on localhost: ${port}`);
+    });
 
-// Spin up the server
-// Callback to debug
-
-// Initialize all route with a callback function
-
-// Callback function to complete GET '/all'
-
-// Post Route
+})({ port: 8000, staticDir: 'website' });
