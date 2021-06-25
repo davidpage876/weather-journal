@@ -14,7 +14,7 @@ function OpenWeatherMap(apiKey) {
 };
 
 /**
- * Performs a general GET request for the specified url resource.
+ * Performs a general GET request for the specified url resource on the server.
  * See server.js for specific routes.
  * @param {string} url The url resource to request.
  * @returns {Promise<Object>} Returns a promise containing data from the server when fulfilled.
@@ -30,7 +30,7 @@ const getData = async (url = '') => {
 }
 
 /**
- * Performs a general POST request for the specified url resource.
+ * Performs a general POST request for the specified url resource to the server.
  * See server.js for specific routes.
  * @param {string} url The url resource to post to.
  * @param {Object} data The data to post to the server.
