@@ -17,7 +17,7 @@ function OpenWeatherMap(apiKey) {
 (function setUpPage() {
 
     // Initialize weather service with API key.
-    const weatherService = new OpenWeatherMap('');
+    const weatherService = new OpenWeatherMap('934160ec155e854131d8994158596698');
 
     // Set up location input.
     const locInputForm = document.getElementById('loc-input-form');
