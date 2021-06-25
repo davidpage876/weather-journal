@@ -4,13 +4,40 @@
  * @param {string} apiKey The API key.
  */
 function OpenWeatherMap(apiKey) {
-    this.baseUrl = '';
+    this.baseURL = 'api.openweathermap.org/data/2.5/weather?q=';
+    this.apiURL = `&appid=${apiKey}`;
 
     /**
-     * Retrieves weather information using the given service.
+     * Retrieves weather information for the given zip code.
+     * @param {string} zip Zip code to search for.
      * @returns {Promise<Object>} A promise that contains retrieved weather data when resolved.
      */
-    this.getInfo = async() => { return ''; }
+    this.getInfoForZip = async (zip) => {
+        const url = this.baseURL + encodeURI(zip) + this.apiURL;
+        try {
+            const response = await fetch(url);
+            const data = await response.json();
+            return data;
+        } catch (error) {
+            console.log('Error: ', error);
+        }
+    }
+
+    /**
+     * Retrieves weather information for the given city.
+     * @param {string} city City to search for.
+     * @returns {Promise<Object>} A promise that contains retrieved weather data when resolved.
+     */
+    this.getInfoForCity = async (city) => {
+        const url = this.baseURL + encodeURI(city) + this.apiURL;
+        try {
+            const response = await fetch(url);
+            const data = await response.json();
+            return data;
+        } catch (error) {
+            console.log('Error: ', error);
+        }
+    }
 };
 
 /**
@@ -117,10 +144,3 @@ const postData = async (url = '', data = {}) => {
 // Event listener to add function to existing HTML DOM element
 
 /* Function called by event listener */
-
-/* Function to GET Web API Data*/
-
-/* Function to POST data */
-
-
-/* Function to GET Project Data */
