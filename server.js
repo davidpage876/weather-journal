@@ -3,22 +3,19 @@
  * Holds endpoint data about a user.
  * @constructor
  */
-(function UserData() {
-    const entryData = [];
-    return {
+function UserData() {
+    this._entryData = [];
 
-        /** Returns all journal entries submitted by the user. */
-        getAllEntries: function() {
-            return entryData;
-        },
-
-        /** Adds a journal entry to the user record. */
-        addEntry: function(entry) {
-            entryData.push(entry);
-        },
-
+    /** Returns all journal entries submitted by the user. */
+    this.getAllEntries = () => {
+        return _entryData;
     }
-})();
+
+    /** Adds a journal entry to the user record. */
+    this.addEntry = entry => {
+        _entryData.push(entry);
+    }
+};
 
 /**
  * Spin up the server.
