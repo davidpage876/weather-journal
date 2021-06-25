@@ -1,7 +1,23 @@
 
+/**
+ * Weather service for retrieving weather information from https://openweathermap.org/api.
+ * @param {string} apiKey The API key.
+ */
+function OpenWeatherMap(apiKey) {
+    this.baseUrl = '';
 
+    /**
+     * Retrieves weather information using the given service.
+     * @returns {Promise<Object>} A promise that contains retrieved weather data when resolved.
+     */
+    this.getInfo = async() => { return ''; }
+};
 
+// Set up page.
 (function setUpPage() {
+
+    // Initialize weather service with API key.
+    const weatherService = new OpenWeatherMap('');
 
     // Set up location input.
     const locInputForm = document.getElementById('loc-input-form');
