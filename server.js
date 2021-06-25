@@ -17,12 +17,8 @@ function UserData() {
     }
 };
 
-/**
- * Spin up the server.
- * @param {number} port Port to initialize the server on.
- * @param {string} staticDir Directory to load static resources from.
-*/
-(function runServer(port, staticDir) {
+// Spin up the server on port 8000, with static resources loaded from folder 'website'.
+(function spinUpServer(port = '8000', staticDir = 'website') {
     const userData = new UserData;
 
     // Set up dependencies.
@@ -53,4 +49,4 @@ function UserData() {
         console.log(`Running on localhost: ${port}`);
     });
 
-})({ port: 8000, staticDir: 'website' });
+})();
