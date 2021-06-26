@@ -61,6 +61,7 @@
                             <h2 class="loc-input__heading">Where are you?</h2>
                             <form method="get" id="loc-input-form" class="loc-input__form">
                                 <div class="loc-input__row">
+                                    <label for="loc-country" class="loc-input__country-label">Country:</label>
                                     <select name="loc-country" class="loc-input__country" id="loc-country" required>
                                         <option value="AF">Afghanistan</option>
                                         <option value="AX">Aland Islands</option>
@@ -317,7 +318,7 @@
                                     </select>
                                 </div>
                                 <div class="loc-input__row">
-                                    <label for="loc-input" class="loc-input__label">Zip Code / City</label>
+                                    <label for="loc-input" class="loc-input__input-label">Zip Code / City</label>
                                     <input type="text" name="loc" class="loc-input__input" id="loc-input" required>
                                     <input type="button" value="gps_fixed" class="loc-input__gps material-icons icon" id="current-loc-btn" title="Use your current location">
                                     <input type="submit" value="arrow_forward" class="loc-input__submit material-icons icon" id="loc-submit-btn" title="Submit">

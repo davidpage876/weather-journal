@@ -386,6 +386,8 @@ body {
 .loc-input__row:nth-child(1) {
     display: flex;
     justify-content: center;
+    align-items: center;
+    gap: 10px;
 }
 
 .loc-input__country {
@@ -401,15 +403,15 @@ body {
     gap: 6px;
 }
 
-.loc-input__label {
+.loc-input__input-label {
     grid-area: input;
     z-index: 5;
     padding: 13px;
     opacity: 90%;
 }
 
-.has-focus .loc-input__label,
-.has-content .loc-input__label {
+.has-focus .loc-input__input-label,
+.has-content .loc-input__input-label {
     justify-self: end;
     background: rgb(var(--panel-bg-light-rgb));
     padding: 0 5px;
