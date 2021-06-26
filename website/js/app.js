@@ -96,12 +96,13 @@ const postData = async (url = '', data = {}) => {
     const weatherService = new OpenWeatherMap('934160ec155e854131d8994158596698');
 
     // Handle location submit event.
+    const locInput = document.getElementById('zip');
     const locInputForm = document.getElementById('loc-input-form');
     locInputForm.addEventListener('submit', onSubmit = event => {
         event.preventDefault();
 
         // Get zip code.
-        const zip = document.getElementById('loc-input').value;
+        const zip = locInput.value;
         const country = document.getElementById('loc-country').value;
 
         // Retrieve weather information for location.
@@ -116,7 +117,6 @@ const postData = async (url = '', data = {}) => {
     }, false);
 
     // Move location input label above it while it has focus or has content.
-    const locInput = document.getElementById('loc-input');
     const updateHasContent = () => {
         if (locInput.value === "") {
             locInputForm.classList.remove('has-content');
@@ -141,7 +141,7 @@ const postData = async (url = '', data = {}) => {
         navToggle.innerHTML = isOpen ? 'close' : 'menu';
     }, false);
 
-    // Hide header bar background while near top of document.
+    // Hide header bar background when at top of document.
     const updateHeaderBar = () => {
         if (window.scrollY === 0) {
             masthead.classList.add('at-top');
