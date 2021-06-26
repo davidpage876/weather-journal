@@ -1,56 +1,4 @@
 
-const WEATHER_API_KEY = '934160ec155e854131d8994158596698';
-const WEATHER_BASE_URL = 'https://api.openweathermap.org/data/2.5/weather?';
-
-/**
- * Weather service for retrieving weather information from https://openweathermap.org/api.
- * @param {string} apiKey The API key.
- * @param {string} baseUrl The base URL for API requests.
- */
-function OpenWeatherMap(apiKey, baseUrl) {
-    this.baseUrl = baseUrl;
-    this.apiUrl = `&appid=${apiKey}`;
-
-    /**
-     * Retrieves weather information for the given zip code.
-     * @param {string} zip Zip code to search for.
-     * @param {string} country Country code to search for.
-     * @returns {Promise<Object>} A promise that contains retrieved weather data when resolved.
-     */
-    this.getInfoForZip = async (zip, country) => {
-        try {
-            const zipUrl = `zip=${encodeURI(zip)},${encodeURI(country)}`;
-            const url = this.baseUrl + zipUrl + this.apiUrl;
-
-            const response = await fetch(url);
-            const data = await response.json();
-            return data;
-        } catch (error) {
-            console.log('Error: ', error);
-            throw error;
-        }
-    }
-
-    /**
-     * Retrieves weather information for the given city.
-     * @param {string} city City to search for.
-     * @returns {Promise<Object>} A promise that contains retrieved weather data when resolved.
-     */
-    this.getInfoForCity = async (city) => {
-        try {
-            const cityUrl = `city=${encodeURI(city)}`;
-            const url = this.baseUrl + cityUrl + this.apiUrl;
-
-            const response = await fetch(url);
-            const data = await response.json();
-            return data;
-        } catch (error) {
-            console.log('Error: ', error);
-            throw error;
-        }
-    }
-};
-
 /**
  * Performs a general GET request for the specified url resource on the server.
  * See server.js for specific routes.
@@ -96,9 +44,6 @@ const postData = async (url = '', data = {}) => {
 // Set up page.
 (function setUpPage() {
 
-    // Initialize weather service with API key and base URL.
-    const weatherService = new OpenWeatherMap(WEATHER_API_KEY, WEATHER_BASE_URL);
-
     // Handle location submit event.
     const locInput = document.getElementById('zip');
     const locInputForm = document.getElementById('loc-input-form');
@@ -108,9 +53,10 @@ const postData = async (url = '', data = {}) => {
         // Get zip code.
         const zip = locInput.value;
         const country = document.getElementById('loc-country').value;
+        const request = { zip, country };
 
         // Retrieve weather information for location.
-        weatherService.getInfoForZip(zip, country)
+        postData('get-weather', request)
         .then(data => {
             console.log(data);
             // TODO: Update UI.
