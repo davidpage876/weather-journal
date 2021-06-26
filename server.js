@@ -8,12 +8,12 @@ function UserData() {
 
     /** Returns all journal entries submitted by the user. */
     this.getAllEntries = () => {
-        return _entryData;
+        return this._entryData;
     }
 
     /** Adds a journal entry to the user record. */
     this.addEntry = entry => {
-        _entryData.push(entry);
+        this._entryData.push(entry);
     }
 };
 
