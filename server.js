@@ -6,15 +6,24 @@
 function UserData() {
     this._entryData = [];
 
+    /**
+     * Returns the latest journal entry submitted by the user
+     * Returns undefined if there were none.
+     */
+    this.getLatestEntry = () => {
+        const length = this._entryData.length;
+        return length > 0 ? this._entryData[length - 1] : undefined;
+    };
+
     /** Returns all journal entries submitted by the user. */
     this.getAllEntries = () => {
         return this._entryData;
-    }
+    };
 
     /** Adds a journal entry to the user record. */
     this.addEntry = entry => {
         this._entryData.push(entry);
-    }
+    };
 };
 
 // Spin up the server on port 8000, with static resources loaded from folder 'website'.
@@ -47,10 +56,10 @@ function UserData() {
             res.send(userData.getAllEntries());
         });
 
-        // POST Route to add an entry to the journal.
+        // POST Route to add an entry to the journal. Responds with the entry added.
         app.post('/add-entry', (req, res) => {
             userData.addEntry(req.body);
-            res.send(userData.getAllEntries()); // TODO: Do I need to do this for assessment?
+            res.send(userData.getLatestEntry());
         });
 
         // GET Route to get the weather service API key.
