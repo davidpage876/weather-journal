@@ -26,8 +26,9 @@ function UserData() {
     };
 };
 
-// Spin up the server on port 8000, with static resources loaded from folder 'website'.
-(function spinUpServer(port = '8000', staticDir = 'website') {
+// Spin up the server on port 8000.
+(() => {
+    const port = '8000';
 
     // Initialize user data endpoint.
     const userData = new UserData;
@@ -36,21 +37,24 @@ function UserData() {
     const PLACEHOLDER = '********************************';
     const apiKey = process.env.API_KEY || PLACEHOLDER;
 
-    // Set up dependencies.
+    // Create express app.
     const express = require('express');
-    const bodyParser = require('body-parser');
-    const cors = require('cors');
-    const path = require('path');
-
     const app = express();
-    app.use(bodyParser.urlencoded({ extended: false }));
-    app.use(bodyParser.json());
-    app.use(cors());
-    app.use(express.static(path.join(__dirname, staticDir)));
+
+    // Set up middleware.
+    {
+        const express = require('express');
+        const bodyParser = require('body-parser');
+        const cors = require('cors');
+        const path = require('path');
+        app.use(bodyParser.urlencoded({ extended: false }));
+        app.use(bodyParser.json());
+        app.use(cors());
+        app.use(express.static(path.join(__dirname, 'website')));
+    }
 
     // Set up routes.
-    (function setUpRoutes() {
-
+    {
         // GET Route to get all journal entries logged.
         app.get('/all', (req, res) => {
             res.send(userData.getAllEntries());
@@ -66,13 +70,11 @@ function UserData() {
         app.get('/api-key', (req, res) => {
             res.send({ apiKey });
         });
-
-    })();
+    }
 
     // Run server.
     app.listen(port, () => {
         console.log('Server running');
         console.log(`Running on localhost: ${port}`);
     });
-
 })();
