@@ -81,7 +81,7 @@ const postData = async (url = '', data = {}) => {
             method: 'POST',
             credentials: 'same-origin',
             headers: {
-                'Content Type': 'application/json'
+                'Content-Type': 'application/json'
             },
             body: JSON.stringify(data)
         });
