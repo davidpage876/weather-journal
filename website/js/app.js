@@ -98,7 +98,7 @@ const postData = async (url = '', data = {}) => {
 };
 
 // Set up page.
-(function() {
+(() => {
 
     // Initialize weather service.
     const weatherService = new OpenWeatherMap;
