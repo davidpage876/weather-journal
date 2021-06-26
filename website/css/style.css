@@ -289,7 +289,7 @@ body {
 .header-bar__content {
     display: grid;
     grid-template-columns: 1fr 60px;
-    padding-left: 6px;
+    padding-left: 12px;
     padding-right: 6px;
 }
 
