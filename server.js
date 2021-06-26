@@ -1,7 +1,4 @@
 
-// Dependencies.
-const fetch = require('node-fetch');
-
 /**
  * Holds endpoint data about a user.
  * @constructor
@@ -20,55 +17,6 @@ function UserData() {
     }
 };
 
-/**
- * Weather service for retrieving weather information from https://openweathermap.org/api.
- * @param {string} apiKey The API key.
- * @param {string} baseUrl The base URL for API requests.
- */
- function OpenWeatherMap(apiKey, baseUrl) {
-    this.baseUrl = baseUrl;
-    this.apiUrl = `&appid=${apiKey}`;
-
-    /**
-     * Retrieves weather information for the given zip code.
-     * @param {string} zip Zip code to search for.
-     * @param {string} country Country code to search for.
-     * @returns {Promise<Object>} A promise that contains retrieved weather data when resolved.
-     */
-    this.getInfoForZip = async (zip, country) => {
-        try {
-            const zipUrl = `zip=${encodeURI(zip)},${encodeURI(country)}`;
-            const url = this.baseUrl + zipUrl + this.apiUrl;
-
-            const response = await fetch(url);
-            const data = await response.json();
-            return data;
-        } catch (error) {
-            console.log('Error: ', error);
-            return Promise.reject(error);
-        }
-    }
-
-    /**
-     * Retrieves weather information for the given city.
-     * @param {string} city City to search for.
-     * @returns {Promise<Object>} A promise that contains retrieved weather data when resolved.
-     */
-    this.getInfoForCity = async (city) => {
-        try {
-            const cityUrl = `city=${encodeURI(city)}`;
-            const url = this.baseUrl + cityUrl + this.apiUrl;
-
-            const response = await fetch(url);
-            const data = await response.json();
-            return data;
-        } catch (error) {
-            console.log('Error: ', error);
-            return Promise.reject(error);
-        }
-    }
-};
-
 // Spin up the server on port 8000, with static resources loaded from folder 'website'.
 (function spinUpServer(port = '8000', staticDir = 'website') {
 
@@ -78,10 +26,6 @@ function UserData() {
     // Get API key from server environment variable "API_KEY".
     const PLACEHOLDER = '********************************';
     const apiKey = process.env.API_KEY || PLACEHOLDER;
-
-    // Initialize weather service with API key and base URL.
-    const baseUrl = 'https://api.openweathermap.org/data/2.5/weather?';
-    const weatherService = new OpenWeatherMap(apiKey, baseUrl);
 
     // Set up dependencies.
     const express = require('express');
@@ -109,32 +53,11 @@ function UserData() {
             res.send(userData.getAllEntries()); // TODO: Do I need to do this for assessment?
         });
 
-        // POST Route to retrieve weather information from our weather service.
-        // Expects POST body to contain an object with either { zip, country } or { city } properties.
-        app.post('/get-weather', async (req, res, next) => {
-            try {
-                const data = req.body;
-                const zip = data?.zip;
-                const country = data?.country;
-                const city = data?.city;
-
-                // Retrieve weather info.
-                let weatherInfo = undefined;
-                if (zip !== undefined && country !== undefined) {
-                    weatherInfo = await weatherService.getInfoForZip(zip, country);
-                } else if (city !== undefined) {
-                    weatherInfo = await weatherService.getInfoForCity(city);
-                } else {
-                    throw new Error('Calls to /get-weather must contain either { zip, country }, or { city } properties in the request body');
-                }
-
-                // Send weather info to the client.
-                res.send(weatherInfo);
-            } catch (error) {
-                console.log("Error", error);
-                next(error);
-            }
+        // GET Route to get the weather service API key.
+        app.get('/api-key', (req, res) => {
+            res.send({ apiKey });
         });
+
     })();
 
     // Run server.

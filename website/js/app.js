@@ -41,8 +41,67 @@ const postData = async (url = '', data = {}) => {
     }
 }
 
+/**
+ * Weather service for retrieving weather information from https://openweathermap.org/api.
+ */
+ function OpenWeatherMap() {
+    const BASE_URL = 'https://api.openweathermap.org/data/2.5/weather?';
+
+    // Retrieve API key from server.
+    //
+    // NOTE: Ideally we would do all API calls on the server,
+    // but for the sake of the assessment I get the API key from the server.
+    this.apiKey = getData('/api-key').then(data => { return data.apiKey; });
+
+    /**
+     * Retrieves weather information for the given zip code.
+     * @param {string} zip Zip code to search for.
+     * @param {string} country Country code to search for.
+     * @returns {Promise<Object>} A promise that contains retrieved weather data when resolved.
+     */
+    this.getInfoForZip = async (zip, country) => {
+        try {
+            const apiKey = await this.apiKey;
+            const apiUrl = `&appid=${apiKey}`;
+            const zipUrl = `zip=${encodeURI(zip)},${encodeURI(country)}`;
+
+            const url = BASE_URL + zipUrl + apiUrl;
+            const response = await fetch(url);
+            const data = await response.json();
+            return data;
+        } catch (error) {
+            console.log('Error: ', error);
+            return Promise.reject(error);
+        }
+    }
+
+    /**
+     * Retrieves weather information for the given city.
+     * @param {string} city City to search for.
+     * @returns {Promise<Object>} A promise that contains retrieved weather data when resolved.
+     */
+    this.getInfoForCity = async (city) => {
+        try {
+            const apiKey = await this.apiKey;
+            const apiUrl = `&appid=${apiKey}`;
+            const cityUrl = `city=${encodeURI(city)}`;
+
+            const url = BASE_URL + cityUrl + apiUrl;
+            const response = await fetch(url);
+            const data = await response.json();
+            return data;
+        } catch (error) {
+            console.log('Error: ', error);
+            return Promise.reject(error);
+        }
+    }
+};
+
 // Set up page.
 (function setUpPage() {
+
+    // Initialize weather service.
+    const weatherService = new OpenWeatherMap;
 
     // Handle location submit event.
     const locInput = document.getElementById('zip');
@@ -50,20 +109,33 @@ const postData = async (url = '', data = {}) => {
     locInputForm.addEventListener('submit', onSubmitLoc = event => {
         event.preventDefault();
 
-        // Get zip code.
-        const zip = locInput.value;
+        // Get zip code / city.
+        const location = locInput.value;
         const country = document.getElementById('loc-country').value;
-        const request = { zip, country };
 
-        // Retrieve weather information for location.
-        postData('get-weather', request)
-        .then(data => {
-            console.log(data);
-            // TODO: Update UI.
-        })
-        .catch(error => {
-            // TODO: Show error message to user.
-        });
+        // Determine if a zip code or city.
+        const isZip = true; // TODO: Add support for city.
+
+        // Retrieve weather info asynchronously.
+        (async () => {
+            try {
+                let data = undefined;
+                if (isZip && country) {
+                    data = await weatherService.getInfoForZip(location, country);
+                } else if (!isZip) {
+                    data = await weatherService.getInfoForCity(city);
+                } else {
+                    throw new Error(`No valid location provided: (location = ${location}, country = ${country})`);
+                }
+
+                console.log(data);
+                // TODO: Update UI.
+
+            } catch (error) {
+                console.log("Error", error);
+                // TODO: Show error message to user.
+            }
+        })();
     }, false);
 
     // Handle journal entry submit event.
