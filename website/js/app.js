@@ -98,7 +98,7 @@ const postData = async (url = '', data = {}) => {
     // Handle location submit event.
     const locInput = document.getElementById('zip');
     const locInputForm = document.getElementById('loc-input-form');
-    locInputForm.addEventListener('submit', onSubmit = event => {
+    locInputForm.addEventListener('submit', onSubmitLoc = event => {
         event.preventDefault();
 
         // Get zip code.
@@ -115,6 +115,30 @@ const postData = async (url = '', data = {}) => {
             // TODO: Show error message to user.
         });
     }, false);
+
+    // Handle journal entry submit event.
+    const feelingsInput = document.getElementById('feelings');
+    const generateBtn = document.getElementById('generate');
+    const journalEntryForm = document.getElementById('journal-entry__form');
+    const generateEntry = () => {
+        // TODO: Submit entry.
+        console.log('Entry submitted');
+    };
+    generateBtn.addEventListener('click', onGeneratePressed = event => {
+
+        // Note: I'm required to use the click event for the project assessment criteria.
+        // Prevents form submit event from also being fired.
+        event.preventDefault();
+
+        generateEntry();
+    });
+    journalEntryForm.addEventListener('submit', onEntryFormSubmit = event => {
+
+        // Prevent page refresh.
+        event.preventDefault();
+
+        generateEntry();
+    });
 
     // Move location input label above it while it has focus or has content.
     const updateHasContent = () => {
