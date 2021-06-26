@@ -40,7 +40,7 @@ function UserData() {
 
     app.post('/add-entry', (req, res) => {
         userData.addEntry(req.body);
-        res.send(userData.getAllEntries());
+        res.send(userData.getAllEntries()); // TODO: Do I need to do this for assessment?
     });
 
     // Run server.

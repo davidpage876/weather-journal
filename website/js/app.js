@@ -121,6 +121,22 @@ const postData = async (url = '', data = {}) => {
     const generateBtn = document.getElementById('generate');
     const journalEntryForm = document.getElementById('journal-entry__form');
     const generateEntry = () => {
+
+        // Post entry data to server, then retrieve the posted data to update the UI with.
+        const feelings = feelingsInput.value;
+        const newData = { data: '', temp: '', content: feelings };
+        postData('/add-entry', newData)
+        .then(() => {
+            return getData('/all'); // TODO: Do I need to use GET route for assessment?
+        })
+        .then((data) => {
+            // TODO: Update UI.
+        })
+        .catch(error => {
+            // TODO: Show error message to user.
+            console.log(error);
+        });
+
         // TODO: Submit entry.
         console.log('Entry submitted');
     };
