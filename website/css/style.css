@@ -377,6 +377,24 @@ body {
 }
 
 .loc-input__form {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding: 0 5%;
+}
+
+.loc-input__row:nth-child(1) {
+    display: flex;
+    justify-content: center;
+}
+
+.loc-input__country {
+    padding: 10px;
+    width: 100%;
+    max-width: 315px;
+}
+
+.loc-input__row:nth-child(2) {
     display: grid;
     grid-template-columns: minmax(0, 450px) auto auto;
     grid-template-areas: "input gps submit";
@@ -443,7 +461,7 @@ body {
     gap: 28px 0;
     max-width: 400px;
     margin: 0 auto;
-    padding: 20px 0 60px;
+    padding: 116px 0 60px;
 }
 
 .journal-entry--main {
@@ -490,7 +508,7 @@ body {
             "info input"
             "post post";
         max-width: 800px;
-        padding: 50px 0;
+        padding: 132px 0 50px;
     }
 
 }
