@@ -4,8 +4,8 @@
  * @param {string} apiKey The API key.
  */
 function OpenWeatherMap(apiKey) {
-    this.baseURL = 'api.openweathermap.org/data/2.5/weather?q=';
-    this.apiURL = `&appid=${apiKey}`;
+    this.baseUrl = 'https://api.openweathermap.org/data/2.5/weather?';
+    this.apiUrl = `&appid=${apiKey}`;
 
     /**
      * Retrieves weather information for the given zip code.
@@ -13,13 +13,15 @@ function OpenWeatherMap(apiKey) {
      * @returns {Promise<Object>} A promise that contains retrieved weather data when resolved.
      */
     this.getInfoForZip = async (zip) => {
-        const url = this.baseURL + encodeURI(zip) + this.apiURL;
+        const zipUrl = `zip=${encodeURI(zip)}`;
+        const url = this.baseUrl + zipUrl + this.apiUrl;
         try {
             const response = await fetch(url);
             const data = await response.json();
             return data;
         } catch (error) {
             console.log('Error: ', error);
+            throw error;
         }
     }
 
@@ -29,13 +31,15 @@ function OpenWeatherMap(apiKey) {
      * @returns {Promise<Object>} A promise that contains retrieved weather data when resolved.
      */
     this.getInfoForCity = async (city) => {
-        const url = this.baseURL + encodeURI(city) + this.apiURL;
+        const cityUrl = `city=${encodeURI(city)}`;
+        const url = this.baseUrl + cityUrl + this.apiUrl;
         try {
             const response = await fetch(url);
             const data = await response.json();
             return data;
         } catch (error) {
             console.log('Error: ', error);
+            throw error;
         }
     }
 };
@@ -53,6 +57,7 @@ const getData = async (url = '') => {
         return data;
     } catch (error) {
         console.log('Error: ', error);
+        throw error;
     }
 }
 
@@ -77,6 +82,7 @@ const postData = async (url = '', data = {}) => {
         return receivedData;
     } catch (error) {
         console.log('Error: ', error);
+        throw error;
     }
 }
 
@@ -86,10 +92,23 @@ const postData = async (url = '', data = {}) => {
     // Initialize weather service with API key.
     const weatherService = new OpenWeatherMap('934160ec155e854131d8994158596698');
 
-    // Set up location input.
+    // Handle location submit event.
     const locInputForm = document.getElementById('loc-input-form');
     locInputForm.addEventListener('submit', onSubmit = event => {
         event.preventDefault();
+
+        // Get zip code.
+        const zip = document.getElementById('loc-input').value;
+
+        // Retrieve weather information for location.
+        weatherService.getInfoForZip(zip)
+        .then(data => {
+            console.log(data);
+            // TODO: Update UI.
+        })
+        .catch(error => {
+            // TODO: Show error message to user.
+        });
     }, false);
 
     // Move location input label above it while it has focus or has content.
