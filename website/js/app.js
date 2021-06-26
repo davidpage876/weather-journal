@@ -1,10 +1,14 @@
 
+const WEATHER_API_KEY = '934160ec155e854131d8994158596698';
+const WEATHER_BASE_URL = 'https://api.openweathermap.org/data/2.5/weather?';
+
 /**
  * Weather service for retrieving weather information from https://openweathermap.org/api.
  * @param {string} apiKey The API key.
+ * @param {string} baseUrl The base URL for API requests.
  */
-function OpenWeatherMap(apiKey) {
-    this.baseUrl = 'https://api.openweathermap.org/data/2.5/weather?';
+function OpenWeatherMap(apiKey, baseUrl) {
+    this.baseUrl = baseUrl;
     this.apiUrl = `&appid=${apiKey}`;
 
     /**
@@ -92,8 +96,8 @@ const postData = async (url = '', data = {}) => {
 // Set up page.
 (function setUpPage() {
 
-    // Initialize weather service with API key.
-    const weatherService = new OpenWeatherMap('934160ec155e854131d8994158596698');
+    // Initialize weather service with API key and base URL.
+    const weatherService = new OpenWeatherMap(WEATHER_API_KEY, WEATHER_BASE_URL);
 
     // Handle location submit event.
     const locInput = document.getElementById('zip');
