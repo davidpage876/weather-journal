@@ -393,13 +393,14 @@ body {
 .loc-input__country {
     padding: 10px;
     width: 100%;
-    max-width: 315px;
+    max-width: 325px;
 }
 
 .loc-input__row:nth-child(2) {
     display: grid;
-    grid-template-columns: minmax(0, 450px) auto auto;
+    grid-template-columns: minmax(0, 400px) 45px 45px;
     grid-template-areas: "input gps submit";
+    justify-content: center;
     gap: 6px;
 }
 
