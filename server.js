@@ -34,7 +34,7 @@ function UserData() {
     const userData = new UserData;
 
     // Get API key from server environment variable "API_KEY".
-    const PLACEHOLDER = '********************************';
+    const PLACEHOLDER = '********************************'; // Replace with an API Key to test.
     const apiKey = process.env.API_KEY || PLACEHOLDER;
 
     // Create express app.
