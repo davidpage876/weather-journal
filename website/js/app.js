@@ -10,12 +10,14 @@ function OpenWeatherMap(apiKey) {
     /**
      * Retrieves weather information for the given zip code.
      * @param {string} zip Zip code to search for.
+     * @param {string} country Country code to search for.
      * @returns {Promise<Object>} A promise that contains retrieved weather data when resolved.
      */
-    this.getInfoForZip = async (zip) => {
-        const zipUrl = `zip=${encodeURI(zip)}`;
-        const url = this.baseUrl + zipUrl + this.apiUrl;
+    this.getInfoForZip = async (zip, country) => {
         try {
+            const zipUrl = `zip=${encodeURI(zip)},${encodeURI(country)}`;
+            const url = this.baseUrl + zipUrl + this.apiUrl;
+
             const response = await fetch(url);
             const data = await response.json();
             return data;
@@ -31,9 +33,10 @@ function OpenWeatherMap(apiKey) {
      * @returns {Promise<Object>} A promise that contains retrieved weather data when resolved.
      */
     this.getInfoForCity = async (city) => {
-        const cityUrl = `city=${encodeURI(city)}`;
-        const url = this.baseUrl + cityUrl + this.apiUrl;
         try {
+            const cityUrl = `city=${encodeURI(city)}`;
+            const url = this.baseUrl + cityUrl + this.apiUrl;
+
             const response = await fetch(url);
             const data = await response.json();
             return data;
@@ -99,9 +102,10 @@ const postData = async (url = '', data = {}) => {
 
         // Get zip code.
         const zip = document.getElementById('loc-input').value;
+        const country = document.getElementById('loc-country').value;
 
         // Retrieve weather information for location.
-        weatherService.getInfoForZip(zip)
+        weatherService.getInfoForZip(zip, country)
         .then(data => {
             console.log(data);
             // TODO: Update UI.
