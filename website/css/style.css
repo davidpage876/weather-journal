@@ -370,7 +370,7 @@ body {
 	position: absolute;
     left: 0;
     right: 0;
-	top: 0;
+    top: -67px;
 	transition:
 		gap 0.4s ease-in-out,
 		top 0.4s ease-in-out;
@@ -426,7 +426,9 @@ body {
 
 .loc-input__heading {
     font-size: 25px;
-    transition: font-size 0.4s ease-in-out;
+    opacity: 0;
+    transition: font-size 0.4s ease-in-out,
+        opacity 0.4s ease-in-out;
 }
 
 .loc-input__input {
@@ -443,12 +445,12 @@ body {
 }
 
 .site-main:not(.has-location) .loc-input {
-    gap: 7px;
-    top: 22vh;
+    top: 18vh;
 }
 
 .site-main:not(.has-location) .loc-input__heading {
     font-size: 35px;
+    opacity: 1;
 }
 
 /* -----------------------------------------------------------
@@ -464,7 +466,7 @@ body {
     gap: 28px 0;
     max-width: 400px;
     margin: 0 auto;
-    padding: 125px 0 60px;
+    padding: 49px 0 60px;
 }
 
 .journal-entry--main {
@@ -511,7 +513,7 @@ body {
             "info input"
             "post post";
         max-width: 800px;
-        padding: 140px 0 50px;
+        padding: 69px 0 50px;
     }
 
 }
