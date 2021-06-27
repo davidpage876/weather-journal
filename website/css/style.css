@@ -406,8 +406,8 @@ body {
 
 .loc-input__row:nth-child(2) {
     display: grid;
-    grid-template-columns: minmax(0, 400px) 45px 45px;
-    grid-template-areas: "input gps submit";
+    grid-template-columns: minmax(0, 400px) 45px;
+    grid-template-areas: "input submit";
     justify-content: center;
     gap: 6px;
 }
@@ -442,10 +442,6 @@ body {
 .loc-input__input {
     padding: 11px;
     grid-area: input;
-}
-
-.loc-input__gps {
-    grid-area: gps;
 }
 
 .loc-input__submit {
