@@ -687,3 +687,8 @@ body {
     font-size: 24px;
     z-index: 20;
 }
+
+.has-location.loading--location .journal-entry {
+    opacity: 0;
+    pointer-events: none;
+}
