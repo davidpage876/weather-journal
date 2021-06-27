@@ -112,6 +112,9 @@ const postData = async (url = '', data = {}) => {
     const submitLocation = event => {
         event.preventDefault();
 
+        // Hide location input and show "loading" message.
+        siteMain.classList.add('loading');
+
         // Get zip code / city.
         const location = locInput.value;
         const country = document.getElementById('loc-country').value;
@@ -133,6 +136,9 @@ const postData = async (url = '', data = {}) => {
 
                 console.log(data);
                 // TODO: Update UI.
+
+                // Hide "loading" message.
+                siteMain.classList.remove('loading');
 
                 // Reveal weather information and journal input panels.
                 siteMain.classList.add('has-location');

@@ -379,9 +379,11 @@ body {
     left: 0;
     right: 0;
     top: -67px;
+    opacity: 1;
 	transition:
 		gap 0.4s ease-in-out,
-		top 0.4s ease-in-out;
+		top 0.4s ease-in-out,
+        opacity 0.4s ease-in-out;
 }
 
 .loc-input__form {
@@ -552,6 +554,32 @@ body {
  * Loading
  */
 
-.loading {
-    display: none;
+.loading-message {
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.4s linear 0.9s;
+}
+
+.loading .loading-message {
+    visibility: visible;
+    opacity: 1;
+}
+
+.loading .loc-input {
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+.loading .loc-input .loc-input__heading {
+    opacity: 0;
+}
+
+.loc-input-container > .loading-message {
+    position: absolute;
+    top: 50vh;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-size: 24px;
+    z-index: 20;
 }
