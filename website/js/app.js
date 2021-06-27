@@ -240,6 +240,7 @@ function clearWeatherIconClasses(element) {
                     const iconClass = getWeatherIconClass(iconData);
                     const icon = document.getElementById('weather-icon');
                     clearWeatherIconClasses(icon);
+                    icon.dataset.iconClass = iconClass;
                     icon.classList.add(iconClass);
 
                     // Humidity.
@@ -271,8 +272,16 @@ function clearWeatherIconClasses(element) {
         // Post entry data to server, then retrieve the posted data to update the UI with.
         const date = new Date().toLocaleString();
         const temp = document.getElementById('temp').innerHTML;
-        const content = feelingsInput.value;
-        const newData = { date, temp, content };
+        const feelings = feelingsInput.value;
+        const tempC = document.getElementById('tempc').innerHTML;
+        const desc = document.getElementById('weather-desc').innerHTML;
+        const icon = document.getElementById('weather-icon').dataset.iconClass;
+        const humidity = document.getElementById('weather-humid').innerHTML;
+        const wind = document.getElementById('weather-wind').innerHTML;
+
+        const newData = {
+            date, temp, content: feelings,
+            tempC, desc, icon, humidity, wind };
         postData('/add-entry', newData)
         .then(() => {
             return getData('/all');
@@ -284,7 +293,16 @@ function clearWeatherIconClasses(element) {
             document.getElementById('content').innerHTML = latest.content;
             document.getElementById('temp').innerHTML = latest.temp;
             document.getElementById('date').innerHTML = latest.date;
+            document.getElementById('tempc').innerHTML = latest.tempC;
+            document.getElementById('weather-desc').innerHTML = latest.desc;
 
+            const weatherIcon = document.getElementById('weather-icon');
+            clearWeatherIconClasses(weatherIcon);
+            weatherIcon.dataset.classList = latest.icon;
+            weatherIcon.classList.add(latest.icon);
+
+            document.getElementById('weather-humid').innerHTML = latest.humidity;
+            document.getElementById('weather-wind').innerHTML = latest.wind;
         })
         .catch(error => {
             // TODO: Show error message to user.
