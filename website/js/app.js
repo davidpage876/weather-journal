@@ -108,6 +108,76 @@ function kelvinToCelsius(kelvin) {
     return kelvin - 273.15;
 }
 
+/**
+ * Convert OpenWeatherMap weather icon codes to Weather Icons (by Erik Flowers, see https://erikflowers.github.io/weather-icons/).
+ * @param {string} iconId Weather icon ID provided by OpenWeatherMap.
+ * @returns {string} The corresponding class to use on elements which display Weather Icons.
+ */
+function getWeatherIconClass(iconId) {
+    switch (iconId) {
+        case '01d':
+            return 'wi-day-sunny';
+        case '01n':
+            return 'wi-night-clear';
+        case '02d':
+            return 'wi-day-cloudy';
+        case '02n':
+            return 'wi-night-alt-cloudy';
+        case '03d':
+        case '03n':
+            return 'wi-cloud';
+        case '04d':
+        case '04n':
+            return 'wi-cloudy';
+        case '09d':
+            return 'wi-day-showers'
+        case '09n':
+            return 'wi-night-showers';
+        case '10d':
+            return 'wi-day-rain';
+        case '10n':
+            return 'wi-night-rain';
+        case '11d':
+            return 'wi-day-thunderstorm';
+        case '11n':
+            return 'wi-night-thunderstorm';
+        case '13d':
+            return 'wi-day-snow';
+        case '13n':
+            return 'wi-night-snow';
+        case '50d':
+            return 'wi-day-fog';
+        case '50n':
+            return 'wi-night-fog';
+        default:
+            return 'wi-cloud';
+    }
+}
+
+/**
+ * Remove all Wweather Icon classes.
+ * @param {Element} element HTML element to remove icon classes from.
+ */
+function clearWeatherIconClasses(element) {
+    element.classList.remove(
+        'wi-day-sunny',
+        'wi-night-clear',
+        'wi-day-cloudy',
+        'wi-night-alt-cloudy',
+        'wi-cloud',
+        'wi-cloudy',
+        'wi-day-showers',
+        'wi-night-showers',
+        'wi-day-rain',
+        'wi-night-rain',
+        'wi-day-thunderstorm',
+        'wi-night-thunderstorm',
+        'wi-day-snow',
+        'wi-night-snow',
+        'wi-day-fog',
+        'wi-night-fog');
+}
+
 // Set up page.
 (() => {
 
@@ -169,9 +239,11 @@ function kelvinToCelsius(kelvin) {
                     desc.innerHTML = descData;
 
                     // Weather icon.
+                    const iconData = data.weather[0].icon;
+                    const iconClass = getWeatherIconClass(iconData);
                     const icon = document.getElementById('weather-icon');
-                    icon.innerHTML = data.weather[0].icon;
-                    icon.title = `${descData} icon`;
+                    clearWeatherIconClasses(icon);
+                    icon.classList.add(iconClass);
 
                     // Humidity.
                     const humid = document.getElementById('weather-humid');
