@@ -465,31 +465,46 @@ body {
  * Weather Information
  */
 
-.weather-info__icon {
-    font-size: 50px;
-}
-
 .weather-info-box {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-areas:
         "date date"
-        "temf temc"
+        "icon icon"
         "desc desc"
+        "temf temc"
         "humi humi"
         "wind wind";
-    box-sizing: border-box;
-    padding: 25px;
+    padding: 16px;
+    margin: 0;
     text-align: center;
+    list-style: none;
 }
 
-.weather-info-box > p {
+.weather-info-box > li {
     margin: 0;
-    padding: 17px 0;
+    padding: 15px 0;
 }
 
 .weather-info__timedate {
     grid-area: date;
+}
+
+.weather-info-box > .weather-info__timedate > h2 {
+    font-size: 22px;
+    font-weight: normal;
+    line-height: 1;
+    padding: 0;
+}
+
+.weather-info-box > .weather-info__icon {
+    grid-area: icon;
+    padding: 20px 0 0;
+}
+
+.weather-info__icon > i {
+    font-size: 72px;
+    color: var(--text-light);
 }
 
 .weather-info__tempf {
@@ -505,16 +520,17 @@ body {
     line-height: 1;
 }
 
-.weather-info__tempc > sup,
-.weather-info__tempf > sup {
+.weather-info-box > .weather-info__tempc > sup,
+.weather-info-box > .weather-info__tempf > sup {
     top: -1.2em;
     font-size: 20px;
     padding-left: 0.15em;
 }
 
-.weather-info__desc {
+.weather-info-box > .weather-info__desc {
     grid-area: desc;
     text-transform: capitalize;
+    padding: 10px 0 20px;
 }
 
 .weather-info__humid,
@@ -532,6 +548,14 @@ body {
     grid-area: wind;
 }
 
+@media only screen and (min-width: 960px) {
+
+    .weather-info-box {
+        padding: 15px 30px;
+    }
+
+}
+
 /* -----------------------------------------------------------
  * Journal Entry
  */
@@ -545,12 +569,17 @@ body {
     gap: 28px 0;
     max-width: 400px;
     margin: 0 auto;
-    padding: 49px 0 100px;
+    padding: 50px 0 100px;
 }
 
 .journal-entry--main {
     opacity: 0;
     transition: opacity 0.4s ease-in-out;
+}
+
+.journal-entry__label {
+    padding: 0 0 15px;
+    text-align: center;
 }
 
 .journal-entry__info {
@@ -562,7 +591,8 @@ body {
 }
 
 .journal-entry__box {
-    box-sizing: border-box;
+    display: grid;
+    grid-template-rows: auto 1fr;
     padding: 16px;
 }
 
@@ -592,18 +622,22 @@ body {
 }
 
 .journal-entry__column {
-    display: grid;
-    grid-template-rows: 60px 1fr;
-    align-items: center;
-}
-
-.journal-entry__column-heading {
-    justify-self: center;
+    display: flex;
+    flex-direction: column;
 }
 
 .journal-entry__column-content {
     height: 100%;
     min-height: 220px;
+}
+
+.journal-entry__submitted {
+    display: none;
+}
+
+.has-location .journal-entry--main {
+    /* TODO: Hide main journal entry content until we have a location */
+    opacity: 1;
 }
 
 @media only screen and (min-width: 960px) {
@@ -612,15 +646,12 @@ body {
         grid-template-areas:
             "info input"
             "post post";
+        grid-template-columns: 1fr 1fr;
+        gap: 28px 7px;
         max-width: 800px;
-        padding: 69px 0 160px;
+        padding: 100px 0 160px;
     }
 
-}
-
-.has-location .journal-entry--main {
-    /* TODO: Hide main journal entry content until we have a location */
-    opacity: 1;
 }
 
 /* -----------------------------------------------------------

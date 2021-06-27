@@ -327,27 +327,33 @@
                     </div>
                     <form method="get" id="journal-entry__form" class="journal-entry journal-entry--main hidden">
                         <div class="journal-entry__info journal-entry__column weather-info">
-                            <i class="weather-info__icon journal-entry__column-heading wi" id="weather-icon"></i>
-                            <div class="weather-info-box journal-entry__column-content panel panel--dark" id="entry-holder">
-                                <p class="weather-info__timedate" id="date">Saturday 12/06/2021, 11:11 AM</p>
-                                <p class="weather-info__tempf"><span class="weather-info__temp-value" id="temp">--</span><sup>° F</sup></p>
-                                <p class="weather-info__tempc"><span class="weather-info__temp-value" id="tempc">--</span><sup>° C</sup></p>
-                                <p class="weather-info__desc" id="weather-desc">Sunny</p>
-                                <p class="weather-info__humid">
+                            <ul class="weather-info-box journal-entry__column-content panel panel--dark" id="entry-holder">
+                                <li class="weather-info__timedate"><h2 id="date"></h2></li>
+                                <li class="weather-info__icon">
+                                    <i class="icon wi" id="weather-icon"></i>
+                                </li>
+                                <li class="weather-info__desc" id="weather-desc"></li>
+                                <li class="weather-info__tempf">
+                                    <span class="weather-info__temp-value" id="temp">--</span><sup>° F</sup>
+                                </li>
+                                <li class="weather-info__tempc">
+                                    <span class="weather-info__temp-value" id="tempc">--</span><sup>° C</sup>
+                                </li>
+                                <li class="weather-info__humid">
                                     <span>Humidity: </span>
                                     <span><span id="weather-humid">--</span>%</span>
-                                </p>
-                                <p class="weather-info__wind">
+                                </li>
+                                <li class="weather-info__wind">
                                     <span>Wind speed: </span>
                                     <span><span id="weather-wind">--</span> meters/sec</span>
-                                </p>
-                            </div>
+                                </li>
+                            </ul>
                         </div>
                         <div class="journal-entry__feeling journal-entry__column">
-                            <h2 class="journal-entry__label journal-entry__column-heading">
-                                <label for="feelings" id="journal-input-label">How are you feeling?</label>
-                            </h2>
                             <div class="journal-entry__box journal-entry__column-content panel panel--light">
+                                <h2 class="journal-entry__label">
+                                    <label for="feelings" id="journal-input-label">How are you feeling?</label>
+                                </h2>
                                 <textarea type="text" name="journal-entry" class="journal-entry__input" id="feelings"></textarea>
                                 <p class="journal-entry__submitted" id="content"></p>
                             </div>
