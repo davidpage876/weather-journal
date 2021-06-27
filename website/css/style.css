@@ -465,12 +465,71 @@ body {
  * Weather Information
  */
 
+.weather-info__icon {
+    font-size: 50px;
+}
+
+.weather-info-box {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+        "date date"
+        "temf temc"
+        "desc desc"
+        "humi humi"
+        "wind wind";
+    box-sizing: border-box;
+    padding: 25px;
+    text-align: center;
+}
+
+.weather-info-box > p {
+    margin: 0;
+    padding: 17px 0;
+}
+
+.weather-info__timedate {
+    grid-area: date;
+}
+
+.weather-info__tempf {
+    grid-area: temf;
+}
+
+.weather-info__tempc {
+    grid-area: temc;
+}
+
+.weather-info__temp-value {
+    font-size: 50px;
+    line-height: 1;
+}
+
+.weather-info__tempc > sup,
+.weather-info__tempf > sup {
+    top: -1.2em;
+    font-size: 20px;
+    padding-left: 0.15em;
+}
+
 .weather-info__desc {
+    grid-area: desc;
     text-transform: capitalize;
 }
 
-.weather-info__icon {
-    font-size: 50px;
+.weather-info__humid,
+.weather-info__wind {
+    display: flex;
+    justify-content: space-between;
+    text-align: left;
+}
+
+.weather-info__humid {
+    grid-area: humi;
+}
+
+.weather-info__wind {
+    grid-area: wind;
 }
 
 /* -----------------------------------------------------------
