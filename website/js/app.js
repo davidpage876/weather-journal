@@ -219,10 +219,9 @@ function clearWeatherIconClasses(element) {
 
                 // Update weather panel UI.
                 {
-                    // Date.
-                    const dateData = new Date().toLocaleString();
+                    // Display 'Current Weather' in date field.
                     const date = document.getElementById('date');
-                    date.innerHTML = dateData;
+                    date.innerHTML = 'Current Weather';
 
                     // Temperature.
                     const tempData = data.main.temp;
@@ -270,22 +269,27 @@ function clearWeatherIconClasses(element) {
     const generateEntry = () => {
 
         // Post entry data to server, then retrieve the posted data to update the UI with.
-        const feelings = feelingsInput.value;
-        const newData = { data: '', temp: '', content: feelings };
+        const date = new Date().toLocaleString();
+        const temp = document.getElementById('temp').innerHTML;
+        const content = feelingsInput.value;
+        const newData = { date, temp, content };
         postData('/add-entry', newData)
         .then(() => {
-            return getData('/all'); // TODO: Do I need to use GET route for assessment?
+            return getData('/all');
         })
         .then((data) => {
-            // TODO: Update UI.
+            const latest = data[data.length - 1];
+
+            // Update UI.
+            document.getElementById('content').innerHTML = latest.content;
+            document.getElementById('temp').innerHTML = latest.temp;
+            document.getElementById('date').innerHTML = latest.date;
+
         })
         .catch(error => {
             // TODO: Show error message to user.
             console.log(error);
         });
-
-        // TODO: Submit entry.
-        console.log('Entry submitted');
     };
     generateBtn.addEventListener('click', event => {
 

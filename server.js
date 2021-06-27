@@ -64,6 +64,7 @@ function UserData() {
         // POST Route to add an entry to the journal. Responds with the entry added.
         app.post('/add-entry', (req, res) => {
             userData.addEntry(req.body);
+            console.log(userData._entryData);
             res.send(userData.getLatestEntry());
         });
 
