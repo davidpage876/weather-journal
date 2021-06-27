@@ -460,6 +460,14 @@ body {
 }
 
 /* -----------------------------------------------------------
+ * Weather Information
+ */
+
+.weather-info__desc {
+    text-transform: capitalize;
+}
+
+/* -----------------------------------------------------------
  * Journal Entry
  */
 

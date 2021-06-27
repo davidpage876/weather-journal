@@ -98,6 +98,16 @@ const postData = async (url = '', data = {}) => {
     }
 };
 
+/** Returns temperature converted from Kelvin to Fahrenheit. */
+function kelvinToFahrenheit(kelvin) {
+    return ((kelvin - 273.15) * 1.8) + 32;
+}
+
+/** Returns temperature converted from Kelvin to Celsius. */
+function kelvinToCelsius(kelvin) {
+    return kelvin - 273.15;
+}
+
 // Set up page.
 (() => {
 
@@ -135,10 +145,42 @@ const postData = async (url = '', data = {}) => {
                 }
 
                 console.log(data);
-                // TODO: Update UI.
 
                 // Hide "loading" message.
                 siteMain.classList.remove('loading--location');
+
+                // Update weather panel UI.
+                {
+                    // Date.
+                    const dateData = new Date().toLocaleString();
+                    const date = document.getElementById('date');
+                    date.innerHTML = dateData;
+
+                    // Temperature.
+                    const tempData = data.main.temp;
+                    const tempF = document.getElementById('temp');
+                    const tempC = document.getElementById('tempc');
+                    tempF.innerHTML = Math.round(kelvinToFahrenheit(tempData));
+                    tempC.innerHTML = Math.round(kelvinToCelsius(tempData));
+
+                    // Weather description.
+                    const descData = data.weather[0].description;
+                    const desc = document.getElementById('weather-desc');
+                    desc.innerHTML = descData;
+
+                    // Weather icon.
+                    const icon = document.getElementById('weather-icon');
+                    icon.innerHTML = data.weather[0].icon;
+                    icon.title = `${descData} icon`;
+
+                    // Humidity.
+                    const humid = document.getElementById('weather-humid');
+                    humid.innerHTML = data.main.humidity;
+
+                    // Wind speed.
+                    const wind = document.getElementById('weather-wind');
+                    wind.innerHTML = data.wind.speed;
+                }
 
                 // Reveal weather information and journal input panels.
                 siteMain.classList.add('has-location');
