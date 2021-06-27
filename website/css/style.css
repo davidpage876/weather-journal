@@ -420,6 +420,7 @@ body {
     z-index: 5;
     padding: 13px;
     opacity: 90%;
+    pointer-events: none;
 }
 
 .has-focus .loc-input__input-label,
