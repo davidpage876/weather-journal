@@ -472,7 +472,7 @@ body {
     gap: 28px 0;
     max-width: 400px;
     margin: 0 auto;
-    padding: 49px 0 60px;
+    padding: 49px 0 100px;
 }
 
 .journal-entry--main {
@@ -540,7 +540,7 @@ body {
             "info input"
             "post post";
         max-width: 800px;
-        padding: 69px 0 50px;
+        padding: 69px 0 160px;
     }
 
 }
@@ -560,17 +560,17 @@ body {
     transition: opacity 0.4s linear 0.9s;
 }
 
-.loading .loading-message {
+.loading--location .loading-message {
     visibility: visible;
     opacity: 1;
 }
 
-.loading .loc-input {
+.loading--location .loc-input {
     opacity: 0.5;
     pointer-events: none;
 }
 
-.loading .loc-input .loc-input__heading {
+.loading--location .loc-input .loc-input__heading {
     opacity: 0;
 }
 
