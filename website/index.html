@@ -329,12 +329,11 @@
                     <form method="get" id="journal-entry__form" class="journal-entry journal-entry--main">
                         <div class="journal-entry__info journal-entry__column weather-info">
                             <img src="#" class="weather-info__icon journal-entry__column-heading" id="weather-icon" alt="Sun">
-                            <div class="weather-info-box journal-entry__column-content panel panel--dark">
-                                <p class="weather-info__loc" id="weather-loc-info">Townsville, QLD Australia</p>
-                                <p class="weather-info__timedate" id="weather-timedate">Saturday 12/06/2021, 11:11 AM</p>
+                            <div class="weather-info-box journal-entry__column-content panel panel--dark" id="entry-holder">
+                                <p class="weather-info__timedate" id="date">Saturday 12/06/2021, 11:11 AM</p>
+                                <p class="weather-info__tempf"><span class="weather-info__temp-value" id="temp">--</span>° fahrenheit</p>
+                                <p class="weather-info__tempc"><span class="weather-info__temp-value" id="tempc">--</span>° celsius</p>
                                 <p class="weather-info__desc" id="weather-desc">Sunny</p>
-                                <p class="weather-info__tempc"><span id="weather-tempc">--</span>° celsius</p>
-                                <p class="weather-info__tempf"><span id="weather-tempf">--</span>° fahrenheit</p>
                                 <p class="weather-info__precip"><span id="weather-precip">--</span>% precipitation</p>
                                 <p class="weather-info__humid"><span id="weather-humid">--</span>% humidity</p>
                                 <p class="weather-info__wind"><span id="weather-wind">--</span> mph</p>
@@ -346,6 +345,7 @@
                             </h2>
                             <div class="journal-entry__box journal-entry__column-content panel panel--light">
                                 <textarea type="text" name="journal-entry" class="journal-entry__input" id="feelings"></textarea>
+                                <p class="journal-entry__submitted" id="content"></p>
                             </div>
                         </div>
                         <div class="journal-entry__post">
