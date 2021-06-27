@@ -107,6 +107,8 @@ const postData = async (url = '', data = {}) => {
     // Handle location submit event.
     const locInput = document.getElementById('zip');
     const locInputForm = document.getElementById('loc-input-form');
+    const siteMain = document.getElementById('site-main');
+    const journalEntryForm = document.getElementById('journal-entry__form');
     const submitLocation = event => {
         event.preventDefault();
 
@@ -132,6 +134,10 @@ const postData = async (url = '', data = {}) => {
                 console.log(data);
                 // TODO: Update UI.
 
+                // Reveal weather information and journal input panels.
+                siteMain.classList.add('has-location');
+                journalEntryForm.classList.remove('hidden');
+
             } catch (error) {
                 console.log("Error", error);
                 // TODO: Show error message to user.
@@ -143,7 +149,6 @@ const postData = async (url = '', data = {}) => {
     // Handle journal entry submit event.
     const feelingsInput = document.getElementById('feelings');
     const generateBtn = document.getElementById('generate');
-    const journalEntryForm = document.getElementById('journal-entry__form');
     const generateEntry = () => {
 
         // Post entry data to server, then retrieve the posted data to update the UI with.
