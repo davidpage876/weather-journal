@@ -1,3 +1,4 @@
+'use strict';
 
 /**
  * Performs a general GET request for the specified url resource on the server.
@@ -106,7 +107,7 @@ const postData = async (url = '', data = {}) => {
     // Handle location submit event.
     const locInput = document.getElementById('zip');
     const locInputForm = document.getElementById('loc-input-form');
-    locInputForm.addEventListener('submit', onSubmitLoc = event => {
+    const submitLocation = event => {
         event.preventDefault();
 
         // Get zip code / city.
@@ -136,7 +137,8 @@ const postData = async (url = '', data = {}) => {
                 // TODO: Show error message to user.
             }
         })();
-    }, false);
+    };
+    locInputForm.addEventListener('submit', submitLocation, false);
 
     // Handle journal entry submit event.
     const feelingsInput = document.getElementById('feelings');
@@ -162,7 +164,7 @@ const postData = async (url = '', data = {}) => {
         // TODO: Submit entry.
         console.log('Entry submitted');
     };
-    generateBtn.addEventListener('click', onGeneratePressed = event => {
+    generateBtn.addEventListener('click', event => {
 
         // Note: I'm required to use the click event for the project assessment criteria.
         // Prevents form submit event from also being fired.
@@ -170,7 +172,7 @@ const postData = async (url = '', data = {}) => {
 
         generateEntry();
     });
-    journalEntryForm.addEventListener('submit', onEntryFormSubmit = event => {
+    journalEntryForm.addEventListener('submit', event => {
 
         // Prevent page refresh.
         event.preventDefault();
