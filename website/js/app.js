@@ -214,8 +214,6 @@ function clearWeatherIconClasses(element) {
                     throw new Error(`No valid location provided: (location = ${location}, country = ${country})`);
                 }
 
-                console.log(data);
-
                 // Hide "loading" message.
                 siteMain.classList.remove('loading--location');
 
