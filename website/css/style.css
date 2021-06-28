@@ -648,6 +648,8 @@ body {
 
 .journal-entry__submitted {
     display: none;
+    justify-self: center;
+    align-self: center;
 }
 
 .has-location .journal-entry--main {
