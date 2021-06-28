@@ -723,7 +723,7 @@ body {
     display: block;
 }
 
-.entry-posted .journal-entry__post-btn {
+.entry-posted .journal-entry__post-btn:disabled {
     opacity: 0;
 }
 
@@ -747,6 +747,10 @@ body {
 
 .journal-entry__msg--error {
     outline: solid 4px #f00;
+}
+
+.entry-posted .journal-entry__submitted {
+    display: block;
 }
 
 @media only screen and (min-width: 960px) {

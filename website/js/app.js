@@ -278,6 +278,13 @@ function clearWeatherIconClasses(element) {
     const generateBtn = document.getElementById('generate');
     const generateEntry = () => {
 
+        // Disable journal entry and location input.
+        feelingsInput.disabled = true;
+        generateBtn.disabled = true;
+        locCountry.disabled = true;
+        zip.disabled = true;
+        locSubmitBtn.disabled = true;
+
         // Post entry data to server, then retrieve the posted data to update the UI with.
         const date = new Date().toLocaleString();
         const temp = document.getElementById('temp').innerHTML;
@@ -299,6 +306,8 @@ function clearWeatherIconClasses(element) {
             const latest = data[data.length - 1];
 
             // Update UI.
+            siteMain.classList.add('entry-posted');
+
             document.getElementById('content').innerHTML = latest.content;
             document.getElementById('temp').innerHTML = latest.temp;
             document.getElementById('date').innerHTML = latest.date;
