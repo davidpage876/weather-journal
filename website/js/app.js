@@ -189,10 +189,16 @@ function clearWeatherIconClasses(element) {
     const locInputForm = document.getElementById('loc-input-form');
     const siteMain = document.getElementById('site-main');
     const journalEntryForm = document.getElementById('journal-entry__form');
+    const locCountry = document.getElementById('loc-country');
+    const zip = document.getElementById('zip');
+    const locSubmitBtn = document.getElementById('loc-submit-btn');
     const submitLocation = event => {
         event.preventDefault();
 
-        // Hide location input and show "loading" message.
+        // Disable location input and show "loading" message.
+        locCountry.disabled = true;
+        zip.disabled = true;
+        locSubmitBtn.disabled = true;
         siteMain.classList.add('loading--location');
 
         // Get zip code / city.
@@ -214,7 +220,10 @@ function clearWeatherIconClasses(element) {
                     throw new Error(`No valid location provided: (location = ${location}, country = ${country})`);
                 }
 
-                // Hide "loading" message.
+                // Enable location input and hide "loading" message.
+                locCountry.disabled = false;
+                zip.disabled = false;
+                locSubmitBtn.disabled = false;
                 siteMain.classList.remove('loading--location');
 
                 // Update weather panel UI.

@@ -106,6 +106,17 @@ input[type="submit"].icon {
     background: transparent;
 }
 
+button:disabled,
+input[type="button"]:disabled,
+input[type="submit"]:disabled {
+    opacity: 50%;
+    cursor: unset;
+}
+
+input[type="text"]:disabled {
+    opacity: 0.5;
+}
+
 /* -----------------------------------------------------------
  * General layout
  */
@@ -673,11 +684,6 @@ body {
     opacity: 1;
 }
 
-.loading--location .loc-input {
-    opacity: 0.5;
-    pointer-events: none;
-}
-
 .loading--location .loc-input .loc-input__heading {
     opacity: 0;
 }
@@ -694,7 +700,6 @@ body {
 
 .has-location.loading--location .journal-entry {
     opacity: 0;
-    pointer-events: none;
 }
 
 /* -----------------------------------------------------------
