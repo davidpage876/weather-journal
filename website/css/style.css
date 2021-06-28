@@ -561,6 +561,7 @@ body {
  */
 
 .journal-entry {
+    position: relative;
     display: grid;
     grid-template-areas:
         "info"
@@ -613,12 +614,15 @@ body {
 }
 
 .journal-entry__post {
+    position: relative;
     grid-area: post;
     justify-self: center;
 }
 
 .journal-entry__post-btn {
     padding: 8px 85px;
+    opacity: 1;
+    transition: opacity 0.4s ease-in-out;
 }
 
 .journal-entry__column {
@@ -655,7 +659,7 @@ body {
 }
 
 /* -----------------------------------------------------------
- * Loading
+ * Loading state
  */
 
 .loading-message {
@@ -691,4 +695,59 @@ body {
 .has-location.loading--location .journal-entry {
     opacity: 0;
     pointer-events: none;
+}
+
+/* -----------------------------------------------------------
+ * Entry posted state
+ */
+
+.entry-posted .journal-entry__input {
+    display: none;
+}
+
+.entry-posted .journal-entry__posted {
+    display: block;
+    margin: 0;
+}
+
+.journal-entry__post-success {
+    display: none;
+}
+
+.entry-posted .journal-entry__post-success {
+    display: block;
+}
+
+.entry-posted .journal-entry__post-btn {
+    opacity: 0;
+}
+
+.journal-entry__msg {
+    visibility: hidden;
+    background: #fff;
+    text-align: center;
+    position: absolute;
+    bottom: 121px;
+    width: 100%;
+    padding: 5px;
+    margin: 0;
+    opacity: 0;
+    transition: opacity 1.2s ease-in-out;
+}
+
+.entry-posted .journal-entry__msg {
+    visibility: visible;
+    opacity: 1;
+}
+
+.journal-entry__msg--error {
+    outline: solid 4px #f00;
+}
+
+@media only screen and (min-width: 960px) {
+
+    .journal-entry__msg {
+        bottom: 166px;
+    }
+
 }
