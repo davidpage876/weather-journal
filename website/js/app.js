@@ -369,9 +369,20 @@ function clearWeatherIconClasses(element) {
     // Toggle nav menu on menu button pressed.
     const navToggle = document.getElementById('nav-toggle');
     const masthead = document.getElementById('masthead');
+    let navOpen = false;
     navToggle.addEventListener('click', () => {
-        const isOpen = masthead.classList.toggle('menu-open');
-        navToggle.innerHTML = isOpen ? 'close' : 'menu';
+        navOpen = masthead.classList.toggle('menu-open');
+        navToggle.innerHTML = navOpen ? 'close' : 'menu';
+    }, false);
+
+    // Close the nav menu if clicked outside of it.
+    const primaryNav = document.getElementById('primary-nav');
+    window.addEventListener('click', (e) => {
+        if (navOpen && !primaryNav.contains(e.target) && !navToggle.contains(e.target)) {
+            masthead.classList.remove('menu-open');
+            navToggle.innerHTML = 'menu';
+            navOpen = false;
+        }
     }, false);
 
     // Hide header bar background when at top of document.
