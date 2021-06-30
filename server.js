@@ -56,11 +56,6 @@ function UserData() {
 
     // Set up routes.
     {
-        // GET Route to get the latest entry.
-        app.get('/latest', (req, res) => {
-            res.send(userData.getLatestEntry());
-        });
-
         // GET Route to get all journal entries logged.
         app.get('/all', (req, res) => {
             res.send(userData.getAllEntries());

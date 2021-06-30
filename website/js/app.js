@@ -277,9 +277,10 @@ function clearWeatherIconClasses(element) {
             tempC, desc, icon, humidity, wind };
         postData('/add-entry', newData)
         .then(() => {
-            return getData('/latest');
+            return getData('/all');
         })
         .then((data) => {
+            const latest = data[data.length - 1];
 
             // Update UI.
             siteMain.classList.add('entry-posted');
@@ -290,19 +291,19 @@ function clearWeatherIconClasses(element) {
             const weatherInfoBox = document.getElementById('entry-holder');
             weatherInfoBox.classList.replace('panel--light', 'panel--dark');
 
-            document.getElementById('content').innerHTML = data.content;
-            document.getElementById('temp').innerHTML = data.temp;
-            document.getElementById('date').innerHTML = data.date;
-            document.getElementById('tempc').innerHTML = data.tempC;
-            document.getElementById('weather-desc').innerHTML = data.desc;
+            document.getElementById('content').innerHTML = latest.content;
+            document.getElementById('temp').innerHTML = latest.temp;
+            document.getElementById('date').innerHTML = latest.date;
+            document.getElementById('tempc').innerHTML = latest.tempC;
+            document.getElementById('weather-desc').innerHTML = latest.desc;
 
             const weatherIcon = document.getElementById('weather-icon');
             clearWeatherIconClasses(weatherIcon);
-            weatherIcon.dataset.classList = data.icon;
-            weatherIcon.classList.add(data.icon);
+            weatherIcon.dataset.classList = latest.icon;
+            weatherIcon.classList.add(latest.icon);
 
-            document.getElementById('weather-humid').innerHTML = data.humidity;
-            document.getElementById('weather-wind').innerHTML = data.wind;
+            document.getElementById('weather-humid').innerHTML = latest.humidity;
+            document.getElementById('weather-wind').innerHTML = latest.wind;
         })
         .catch(error => {
             // TODO: Show error message to user.
