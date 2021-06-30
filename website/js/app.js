@@ -327,7 +327,10 @@ function clearWeatherIconClasses(element) {
     });
 
     // Move location input label above it while it has focus or has content.
+    const ZIP_LABEL_FULL = "Enter zip code here";
+    const ZIP_LABEL_SHORT = "Zip code";
     const zipLabel = document.getElementById('zip-label');
+
     const updateHasContent = () => {
         if (locInput.value === "") {
             locInputForm.classList.remove('has-content');
@@ -335,15 +338,25 @@ function clearWeatherIconClasses(element) {
             locInputForm.classList.add('has-content');
         }
     };
+    const updateZipLabel = () => {
+        const hasContent = locInputForm.classList.contains('has-content');
+        const hasFocus = locInputForm.classList.contains('has-focus');
+        if (hasFocus || hasContent) {
+            zipLabel.innerHTML = ZIP_LABEL_SHORT;
+        } else {
+            zipLabel.innerHTML = ZIP_LABEL_FULL;
+        }
+    }
+
     locInput.addEventListener('focus', () => {
         locInputForm.classList.add('has-focus');
-        zipLabel.innerHTML = "Zip code";
         updateHasContent();
+        updateZipLabel();
     }, false);
     locInput.addEventListener('blur', () => {
         locInputForm.classList.remove('has-focus');
-        zipLabel.innerHTML = "Enter zip code here";
         updateHasContent();
+        updateZipLabel();
     }, false);
 
     // Toggle nav menu on menu button pressed.
