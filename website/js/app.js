@@ -52,7 +52,10 @@ const postData = async (url = '', data = {}) => {
     //
     // NOTE: Ideally we would do all API calls on the server,
     // but for the sake of the assessment I get the API key from the server.
-    this.apiKey = getData('/api-key').then(data => { return data.apiKey; });
+    this.apiKey = getData('/api-key')
+    .then(data => {
+        return data.apiKey;
+    });
 
     /**
      * Retrieves weather information for the given zip code.
