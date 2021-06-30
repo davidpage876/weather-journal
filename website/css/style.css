@@ -687,7 +687,6 @@ body {
 }
 
 .has-location .journal-entry--main {
-    /* TODO: Hide main journal entry content until we have a location */
     opacity: 1;
 }
 
