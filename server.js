@@ -61,6 +61,11 @@ function UserData() {
             res.send(userData.getAllEntries());
         });
 
+        // GET Route to get the latest entry.
+        app.get('/latest', (req, res) => {
+            res.send(userData.getLatestEntry());
+        });
+
         // POST Route to add an entry to the journal. Responds with the entry added.
         app.post('/add-entry', (req, res) => {
             userData.addEntry(req.body);
