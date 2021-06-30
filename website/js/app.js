@@ -308,6 +308,12 @@ function clearWeatherIconClasses(element) {
             // Update UI.
             siteMain.classList.add('entry-posted');
 
+            const entryBox = document.getElementById('journal-entry__box');
+            entryBox.classList.replace('panel--light', 'panel--dark');
+
+            const weatherInfoBox = document.getElementById('entry-holder');
+            weatherInfoBox.classList.replace('panel--light', 'panel--dark');
+
             document.getElementById('content').innerHTML = latest.content;
             document.getElementById('temp').innerHTML = latest.temp;
             document.getElementById('date').innerHTML = latest.date;
