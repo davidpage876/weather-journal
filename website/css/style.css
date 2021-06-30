@@ -706,7 +706,7 @@ body {
 }
 
 /* -----------------------------------------------------------
- * Loading location state
+ * Loading state
  */
 
 .loading-message {
@@ -763,29 +763,26 @@ body {
     opacity: 0;
 }
 
-.msg {
+.journal-entry__msg {
+    visibility: hidden;
     background: #fff;
     text-align: center;
+    position: absolute;
+    bottom: 121px;
+    width: 100%;
     padding: 5px;
     margin: 0;
     opacity: 0;
     transition: opacity 1.2s ease-in-out;
 }
 
-.msg--error {
-    outline: solid 4px #f00;
-}
-
-.journal-entry__msg {
-    visibility: hidden;
-    position: absolute;
-    bottom: 121px;
-    width: 100%;
-}
-
 .entry-posted .journal-entry__msg {
     visibility: visible;
     opacity: 1;
+}
+
+.journal-entry__msg--error {
+    outline: solid 4px #f00;
 }
 
 .entry-posted .journal-entry__submitted {
@@ -795,29 +792,6 @@ body {
 @media only screen and (min-width: 960px) {
 
     .journal-entry__msg {
-        bottom: 166px;
-    }
-
-}
-
-/* -----------------------------------------------------------
- * Location error
- */
-
-.loc-input__msg {
-    visibility: hidden;
-    position: absolute;
-    bottom: 121px;
-}
-
-.loc-error .loc-input__msg {
-    visibility: visible;
-    opacity: 1;
-}
-
-@media only screen and (min-width: 960px) {
-
-    .loc-input__msg {
         bottom: 166px;
     }
 
