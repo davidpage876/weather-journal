@@ -310,21 +310,7 @@ function clearWeatherIconClasses(element) {
             console.log(error);
         });
     };
-    generateBtn.addEventListener('click', event => {
-
-        // Note: I'm required to use the click event for the project assessment criteria.
-        // Prevents form submit event from also being fired.
-        event.preventDefault();
-
-        generateEntry();
-    });
-    journalEntryForm.addEventListener('submit', event => {
-
-        // Prevent page refresh.
-        event.preventDefault();
-
-        generateEntry();
-    });
+    generateBtn.addEventListener('click', generateEntry);
 
     // Move location input label above it while it has focus or has content.
     const ZIP_LABEL_FULL = "Enter zip code here";
