@@ -327,6 +327,7 @@ function clearWeatherIconClasses(element) {
     });
 
     // Move location input label above it while it has focus or has content.
+    const zipLabel = document.getElementById('zip-label');
     const updateHasContent = () => {
         if (locInput.value === "") {
             locInputForm.classList.remove('has-content');
@@ -336,10 +337,12 @@ function clearWeatherIconClasses(element) {
     };
     locInput.addEventListener('focus', () => {
         locInputForm.classList.add('has-focus');
+        zipLabel.innerHTML = "Zip code";
         updateHasContent();
     }, false);
     locInput.addEventListener('blur', () => {
         locInputForm.classList.remove('has-focus');
+        zipLabel.innerHTML = "Enter zip code here";
         updateHasContent();
     }, false);
 
