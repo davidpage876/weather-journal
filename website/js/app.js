@@ -75,27 +75,6 @@ const postData = async (url = '', data = {}) => {
             return Promise.reject(error);
         }
     }
-
-    /**
-     * Retrieves weather information for the given city.
-     * @param {string} city City to search for.
-     * @returns {Promise<Object>} A promise that contains retrieved weather data when resolved.
-     */
-    this.getInfoForCity = async (city) => {
-        try {
-            const apiKey = await this.apiKey;
-            const apiUrl = `&appid=${apiKey}`;
-            const cityUrl = `city=${encodeURI(city)}`;
-
-            const url = BASE_URL + cityUrl + apiUrl;
-            const response = await fetch(url);
-            const data = await response.json();
-            return data;
-        } catch (error) {
-            console.log('Error: ', error);
-            return Promise.reject(error);
-        }
-    }
 };
 
 /** Returns temperature converted from Kelvin to Fahrenheit. */
@@ -201,23 +180,18 @@ function clearWeatherIconClasses(element) {
         locSubmitBtn.disabled = true;
         siteMain.classList.add('loading--location');
 
-        // Get zip code / city.
-        const location = locInput.value;
+        // Get zip code.
+        const zipCode = locInput.value;
         const country = document.getElementById('loc-country').value;
-
-        // Determine if a zip code or city.
-        const isZip = true; // TODO: Add support for city.
 
         // Retrieve weather info asynchronously.
         (async () => {
             try {
                 let data = undefined;
-                if (isZip && country) {
-                    data = await weatherService.getInfoForZip(location, country);
-                } else if (!isZip) {
-                    data = await weatherService.getInfoForCity(city);
+                if (country) {
+                    data = await weatherService.getInfoForZip(zipCode, country);
                 } else {
-                    throw new Error(`No valid location provided: (location = ${location}, country = ${country})`);
+                    throw new Error(`No valid location provided: (zipCode = ${zipCode}, country = ${country})`);
                 }
 
                 // Enable location input and hide "loading" message.
