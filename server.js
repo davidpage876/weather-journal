@@ -5,25 +5,25 @@
  * @constructor
  */
 function UserData() {
-    this._entryData = [];
+    this.projectData = [];
 
     /**
      * Returns the latest journal entry submitted by the user
      * Returns undefined if there were none.
      */
     this.getLatestEntry = () => {
-        const length = this._entryData.length;
-        return length > 0 ? this._entryData[length - 1] : undefined;
+        const length = this.projectData.length;
+        return length > 0 ? this.projectData[length - 1] : undefined;
     };
 
     /** Returns all journal entries submitted by the user. */
     this.getAllEntries = () => {
-        return this._entryData;
+        return this.projectData;
     };
 
     /** Adds a journal entry to the user record. */
     this.addEntry = entry => {
-        this._entryData.push(entry);
+        this.projectData.push(entry);
     };
 };
 
@@ -64,7 +64,7 @@ function UserData() {
         // POST Route to add an entry to the journal. Responds with the entry added.
         app.post('/add-entry', (req, res) => {
             userData.addEntry(req.body);
-            console.log(userData._entryData);
+            console.log(userData.projectData);
             res.send(userData.getLatestEntry());
         });
 
